@@ -1,13 +1,15 @@
-.content {
-    grid-area: c;
-    background-color: #4AA19E;
-    border-radius: 10px 10px 1px 1px;
-  }
-  .content .pfp {
+/*.grid {                               to do: grid inside profile
+    display:grid;
+    grid-template-areas: "c m";
+    grid-template-columns: 65fr 35fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0.9vw;
+}*/
+.pfp {
     width: 128px;
   }
-  .content .banner {
-    height: 360 px;
+.banner {
+    height: 360px;
     width: 640px;
     border-radius: 10px 1px 1px 1px;
   } 

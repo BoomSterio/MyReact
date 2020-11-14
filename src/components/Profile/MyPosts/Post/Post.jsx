@@ -9,7 +9,7 @@ function Post(props) {
       />
       {props.message}
       <div>
-        <span>like({props.likes}) </span>
+        <span>like ({props.likes}) </span>
       </div>
     </div>
   );

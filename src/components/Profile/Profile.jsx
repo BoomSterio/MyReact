@@ -1,9 +1,10 @@
 import MyPosts from './MyPosts/MyPosts';
 import st from './Profile.module.css';
+import PMedia from "./PMedia/PMedia";
 
 function Profile() {
   return (
-    <div className={st.content}>
+    <div>
       <div>
         <img className={st.banner}
           src="https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Switzerland-Country-Zermatt-Matterhorn-486574518-extravagantni-copy.jpg"
@@ -19,6 +20,7 @@ function Profile() {
         + description
       </div>
       <MyPosts />
+
     </div>
   );
 }

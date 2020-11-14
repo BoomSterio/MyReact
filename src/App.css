@@ -1,15 +1,18 @@
 .app-wrapper {
-  margin: 0 auto;
-  justify-content: center;
-  display: grid;
-  width: 1300px;
+    margin: 0 auto;
+    justify-content: center;
+    display: grid;
+    width: 1300px;
 
-  grid-template-areas: 
-  "h h"
-  "n c"
-  ;
-  grid-template-rows: 70px 1fr;
-  grid-template-columns: 2fr 11fr;
-  grid-gap: 0.9vw;
+    grid-template-areas: "h h" "n c";
+    grid-template-rows: 90px 1fr;
+    grid-template-columns: 2fr 11fr;
+    grid-gap: 0.9vw;
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    background-color: #4AA19E;
+    border-radius: 10px 10px 1px 1px;
 }
 
