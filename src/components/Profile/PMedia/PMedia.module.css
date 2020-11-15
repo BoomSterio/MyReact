@@ -1,6 +1,7 @@
-/*
+
 .media {
-    grid-area: m;
+    padding: 10px;
     background-color: #4AA19E;
-    border-radius: 10px 10px 1px 1px;
-}*/
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 1vw;
+}

@@ -1,8 +1,22 @@
 import st from "./PMedia.module.css";
 
-function PMedia(){
+function PMedia() {
     return (
-        <div>PMedia</div>
+        <div>
+            <div className={st.media}>
+                PMedia1
+                content
+                content
+            </div>
+            <div className={st.media}>
+                PMedia2
+                content
+                content
+                content
+                content
+                content content content content content content
+            </div>
+        </div>
     );
 }
 

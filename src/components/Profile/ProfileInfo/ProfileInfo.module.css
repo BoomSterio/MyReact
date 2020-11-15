@@ -1,0 +1,32 @@
+.profileInfo {
+    min-height: 21vw;
+    max-height: 24vw;
+}
+
+.pfp {
+    align-content: center;
+    text-align: center;
+    position: relative;
+    top: -5.7vw
+}
+.pfp img {
+    width: 7.5vw;
+    height: 7.5vw;
+    object-fit: cover;
+    border-radius: 64px;
+}
+
+.banner {
+    height: 15vw;
+    width: 98%;
+    object-fit: cover;
+    border-radius: 1px 1px 12px 12px;
+    padding: 1%;
+    padding-top: 0;
+}
+
+.info {
+    text-align: center;
+    position: relative;
+    top: -5.8vw;
+}

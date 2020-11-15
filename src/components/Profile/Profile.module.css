@@ -1,15 +1,9 @@
-/*.grid {                               to do: grid inside profile
+.grid {
     display:grid;
-    grid-template-areas: "c m";
-    grid-template-columns: 65fr 35fr;
-    grid-template-rows: 1fr;
-    grid-gap: 0.9vw;
-}*/
-.pfp {
-    width: 128px;
-  }
-.banner {
-    height: 360px;
-    width: 640px;
-    border-radius: 10px 1px 1px 1px;
-  } 
+    grid-template-columns: 68fr 32fr;
+
+}
+.mediaBlock {
+    padding: 20px;
+}
+

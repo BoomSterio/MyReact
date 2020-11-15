@@ -1,0 +1,19 @@
+.message {
+    display: table;
+    padding: 0.5vw;
+    background-color: #1F3041;
+    margin-bottom: 7px;
+    text-align: left;
+    border-radius: 1vw;
+    min-width: 50px;
+}
+
+.myMessage {
+    display: table;
+    padding: 0.5vw;
+    background-color: #4C89C6;
+    margin-bottom: 7px;
+    text-align: right;
+    border-radius: 1vw;
+    min-width: 50px;
+}

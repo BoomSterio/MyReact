@@ -5,6 +5,7 @@ function Header() {
   return (
     <header className={st.header}>
       <img src={logo} alt="logo" />
+      No hooman zone
     </header>
   );
 }
