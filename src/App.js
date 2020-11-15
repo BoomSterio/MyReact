@@ -9,7 +9,7 @@ import Settings from "./components/Settings/Settings";
 import Groups from "./components/Groups/Groups";
 import Feed from "./components/Feed/Feed";
 
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -17,12 +17,14 @@ function App() {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                    {/* <Route path="" render={() => (<Redirect to="/profile"/>)}/>*/}
-                    <Route path="/dialogs" component={Dialogs}/>
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/feed" component={Feed}/>
-                    <Route path="/groups" component={Groups}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/settings" component={Settings}/>
+
+
+                    <Route path="/dialogs"  render={() => <Dialogs dialogs={props.dialogs} messages={props.messages} />}/>
+                    <Route path="/profile"  render={() => <Profile posts={props.posts} />}/>
+                    <Route path="/feed"     render={() => <Feed />}/>
+                    <Route path="/groups"   render={() => <Groups />}/>
+                    <Route path="/music"    render={() => <Music />}/>
+                    <Route path="/settings" render={() => <Settings />}/>
                 </div>
             </div>
         </BrowserRouter>

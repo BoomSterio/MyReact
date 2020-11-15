@@ -3,12 +3,12 @@ import st from './Profile.module.css';
 import PMedia from "./PMedia/PMedia";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-function Profile() {
+function Profile(props) {
     return (
         <div className={st.grid}>
             <div>
                 <ProfileInfo />
-                <MyPosts/>
+                <MyPosts posts={props.posts} />
             </div>
             <div className={st.mediaBlock}>
                 <PMedia/>

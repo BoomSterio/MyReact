@@ -7,7 +7,7 @@
     grid-template-areas: "h h" "n c";
     grid-template-rows: 90px 1fr;
     grid-template-columns: 2fr 14fr;
-    grid-gap: 0.9vw;
+    grid-gap: 0.4vw;
 }
 
 .app-wrapper-content {
@@ -16,8 +16,8 @@
     font-size: 18px;
     color: white;
     background-color: #314A61;
-    border-radius: 10px 10px 1px 1px;
-    border: solid #1F3041 5px;
+    border-radius: 2px 2px 1px 1px;
+    border: solid #7B8997 1px;
     border-bottom: none;
 }
 
