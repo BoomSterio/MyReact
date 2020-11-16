@@ -2,7 +2,7 @@ import st from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 function MyPosts(props) {
-    let postsElements = props.posts.map(p => <Post name={p.name} message={p.message} likes={p.likes} img={p.img}/>)
+    let postsElements = props.posts.map(p => <Post name={p.name} message={p.message} likes={p.likes} img={p.img}/>);
 
     return (
         <div>
