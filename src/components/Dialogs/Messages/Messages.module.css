@@ -1,0 +1,30 @@
+.chat {
+    padding: 1vw;
+}
+
+.messageCreator {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-right: 4vw;
+}
+.messageCreator textarea {
+    width: 80%;
+    resize: none;
+    border-radius: 5px;
+}
+.messageCreator button {
+    background-color: #1F3041;
+    color:white;
+    border: none;
+    border-radius: 25%;
+    height: 90%;
+    width: 4vw;
+    position: absolute;
+    padding: 5px;
+    text-align: center;
+    margin-left: 0.5vw;
+}
+.messages {
+
+}

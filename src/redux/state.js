@@ -1,3 +1,7 @@
+let renderApp = () => {
+    console.log("changed");
+}
+
 let state= {
     profilePage: {
         posts: [
@@ -7,6 +11,7 @@ let state= {
             {id:4,        message:"каво",                                       name:"Big Brother",     likes:26, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRB_mt5A7b2-UR_9NKmESs-1OJ9-daZW9xaeg&usqp=CAU"},
             {id:5,        message:"это я, упал намоченный генерал",             name:"Герой Украины",   likes:61, img:"https://pbs.twimg.com/media/C5AmsxoWIAAWlfS.jpg"},
         ],
+        newPostText: "",
     },
     dialogsPage: {
         dialogs: [
@@ -18,13 +23,37 @@ let state= {
             {name:"Oreo",   id:19700296,        img:"https://i.pinimg.com/originals/3c/43/79/3c43793225d7167513691eb2a525df2e.jpg" },
         ],
         messages: [
-            {id:1,        text:"iuwbipudscvpsiudvo dasoduo wdu qiwdbiu" },
-            {id:2,        text:"это сарказм?" },
-            {id:3,        text:"tenet apero rotas" },
-            {id:4,        text:"каво" },
+            {id:1,  type:"otherMessage",    text:"iuwbipudscvpsiudvo dasoduo wdu qiwdbiu" },
+            {id:2,  type:"myMessage",       text:"это сарказм?" },
+            {id:3,  type:"otherMessage",    text:"tenet apero rotas" },
+            {id:4,  type:"myMessage",       text:"каво" },
         ]
     },
     sidebar: {}
+}
+
+window.state=state;
+
+export const addPost = () => {
+    let newPost = {
+        id:5,
+        message:state.profilePage.newPostText,
+        name:"Капитан Жмышенко",
+        likes:0,
+        img:"https://i.kym-cdn.com/entries/icons/original/000/028/692/cat.jpg"
+    }
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText="";
+    renderApp(state);
+}
+
+export function updatePostText (text)  {
+    state.profilePage.newPostText=text;
+    renderApp(state);
+}
+
+export const subscribe = (observer) => {
+    renderApp=observer;                 //паттерн observer
 }
 
 export default state;

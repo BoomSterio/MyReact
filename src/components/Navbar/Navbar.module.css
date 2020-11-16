@@ -3,6 +3,9 @@
     background-color: burlywood;
     padding: 20px;
     border-radius: 2px;
+    max-height: 30vw;
+    position: sticky;
+    top: 0;
   }
 
 .item a {
@@ -10,6 +13,7 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 17px;
+    /*background-color: #D1872D;*/
 }
 .item a.active {
     color: gold;

@@ -1,18 +1,16 @@
 .dialogs {
     display:grid;
     grid-template-columns: 4fr 10fr;
+    min-height: 60vh;
 }
 .dialogsItems {
     padding: 1vw;
-}
-.dialogsItems .dialog {
-
 }
 .dialogsItems .active {
     color: gold;
 }
 
 .messages {
-    padding: 1vw;
+    position: relative;
     border-left: double 5px black;
 }
