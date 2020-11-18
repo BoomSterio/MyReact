@@ -1,9 +1,9 @@
-import s from './Settings.module.css'
+import st from './Settings.module.css'
 
 function Settings(props) {
     return (
         <div>
-            Dialogs
+            Settings
         </div>
     );
 }

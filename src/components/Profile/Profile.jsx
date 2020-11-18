@@ -8,7 +8,7 @@ function Profile(props) {
         <div className={st.grid}>
             <div>
                 <ProfileInfo />
-                <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} updatePostText={props.updatePostText} addPost={props.addPost} />
+                <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} dispatch={props.dispatch} />
             </div>
             <div className={st.mediaBlock}>
                 <PMedia/>

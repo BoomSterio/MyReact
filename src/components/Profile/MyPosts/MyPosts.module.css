@@ -1,5 +1,10 @@
 .postingBlock {
     padding: 0vw 0.5vw 0vw 0.5vw;
+    width: 100%
+}
+.postingBlock textarea {
+    resize: none;
+    width:75%
 }
 
 .posts {

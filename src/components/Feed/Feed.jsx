@@ -1,4 +1,4 @@
-import s from './Feed.module.css'
+import st from './Feed.module.css'
 
 function Feed(props) {
     return (

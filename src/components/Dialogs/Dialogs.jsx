@@ -3,7 +3,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import Messages from "./Messages/Messages";
 
 function Dialogs(props) {
-    let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name}   id={d.id}     img={d.img}/>);
+    let dialogsElements = props.messagesPage.dialogs.map(d => <DialogItem name={d.name}   id={d.id}     img={d.img}/>);
 
     return (
         <div className={st.dialogs}>
@@ -11,7 +11,7 @@ function Dialogs(props) {
                 {dialogsElements}
             </div>
             <div className={st.messages}>
-                <Messages messages={props.state.messages}/>
+                <Messages messages={props.messagesPage.messages} newMessageText={props.messagesPage.newMessageText} dispatch={props.dispatch}/>
             </div>
         </div>
     );

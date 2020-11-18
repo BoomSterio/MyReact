@@ -1,4 +1,4 @@
-import s from './Music.module.css'
+import st from './Music.module.css'
 
 function Music(props) {
     return (

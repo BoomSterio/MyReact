@@ -6,6 +6,8 @@
     text-align: left;
     border-radius: 1vw;
     min-width:30px;
+    max-width: 20vw;
+    word-wrap: break-word;
 }
 
 .myMessage {
@@ -13,13 +15,12 @@
     padding: 0.5vw;
     background-color: #4C89C6;
     margin-bottom: 7px;
-    text-align: right;
+    text-align: left;
     border-radius: 1vw;
-    min-width:30px;
-    max-width: 8em; /* блок занимает ширину родителя, max-width её ограничивает */
     margin-left: auto;
     margin-right: 0.4em;
+    min-width:30px;
+    max-width: 20vw; /* блок занимает ширину родителя, max-width её ограничивает */
+    word-wrap: break-word;
 }
-.myMessage div {
 
-}

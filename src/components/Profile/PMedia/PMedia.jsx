@@ -1,4 +1,5 @@
 import st from "./PMedia.module.css";
+import FriendsBanner from "./FriendsBanner/FriendsBanner";
 
 function PMedia() {
     return (
@@ -7,14 +8,11 @@ function PMedia() {
                 PMedia1
                 content
                 content
+                <br />
+                content
             </div>
             <div className={st.media}>
-                PMedia2
-                content
-                content
-                content
-                content
-                content content content content content content
+                <FriendsBanner />
             </div>
         </div>
     );

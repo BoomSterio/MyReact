@@ -1,4 +1,4 @@
-import s from './Groups.module.css'
+import st from './Groups.module.css'
 
 function Groups(props) {
     return (
