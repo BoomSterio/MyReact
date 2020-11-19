@@ -1,14 +1,15 @@
-import MyPosts from './MyPosts/MyPosts';
 import st from './Profile.module.css';
 import PMedia from "./PMedia/PMedia";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 function Profile(props) {
+    debugger;
     return (
         <div className={st.grid}>
             <div>
                 <ProfileInfo />
-                <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} dispatch={props.dispatch} />
+                <MyPostsContainer store={props.store} />
             </div>
             <div className={st.mediaBlock}>
                 <PMedia/>

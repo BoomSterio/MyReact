@@ -14,7 +14,7 @@ code {
 }
 
 ::-webkit-scrollbar { width: 7px; height: 3px; border-radius: 3px;}
-::-webkit-scrollbar-button {  background-color: #151E27; border-radius: 3px;}
+::-webkit-scrollbar-button {  background-color: #314A61; border-radius: 3px;}
 ::-webkit-scrollbar-track { }
 ::-webkit-scrollbar-track-piece { background-color: #314A61; border-radius: 3px; border: 3px solid #314A61; }
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #151E27; border-radius: 3px; }

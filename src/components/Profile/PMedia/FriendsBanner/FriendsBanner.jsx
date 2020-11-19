@@ -6,13 +6,19 @@ function PMedia() {
     return (
         <div>
             <div className={st.friendsShortcut}>
-                <NavLink to="/friends" >Friends ({friendsCount})</NavLink>
+                <NavLink to="/friends">Friends ({friendsCount})</NavLink>
             </div>
-            <hr />
+            <hr/>
             <div className={st.icons}>
-                <div>img1</div>
-                <div>img2</div>
-                <div>img3</div>
+                <div className={st.icon}>
+                    <NavLink to="/profile"><img src="https://i.redd.it/zwynel51x3e11.jpg"/></NavLink>
+                </div>
+                <div className={st.icon}>
+                    <NavLink to="/profile"><img src="https://i.pinimg.com/originals/d7/b6/8e/d7b68ed24b41e4b9a6ceecd1f96b51e7.jpg"/></NavLink>
+                </div>
+                <div className={st.icon}>
+                    <NavLink to="/profile"><img src="https://lostandfoundtobe.com/wp-content/uploads/2020/01/cat-face-time.gif"/></NavLink>
+                </div>
             </div>
         </div>
     );

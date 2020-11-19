@@ -9,6 +9,7 @@ import Settings from "./components/Settings/Settings";
 import Groups from "./components/Groups/Groups";
 import Feed from "./components/Feed/Feed";
 import Friends from "./components/Friends/Friends";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 function App(props) {
     debugger;
@@ -18,9 +19,8 @@ function App(props) {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                   {/* <Route path="" render={() => (<Redirect to="/profile"/>)}/>*/}
-                    <Route path="/dialogs"  render={() => <Dialogs messagesPage={props.state.dialogsPage} dispatch={props.dispatch} />}/>
-                    <Route path="/profile"  render={() => <Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />}/>
+                    <Route path="/dialogs"  render={() => <DialogsContainer store={props.store} />}/>
+                    <Route path="/profile"  render={() => <Profile store={props.store} />}/>
                     <Route path="/feed"     render={() => <Feed />}/>
                     <Route path="/groups"   render={() => <Groups />}/>
                     <Route path="/friends"  render={() => <Friends />}/>
