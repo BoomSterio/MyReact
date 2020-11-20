@@ -18,7 +18,10 @@ let initialState = {
             id: 19700293,
             img: "https://i.pinimg.com/originals/2f/66/ab/2f66abb007554ade8d4ee784259c1322.jpg"
         },
-        {name: "Baksss", id: 19700294, img: "https://i.imgflip.com/3aun8x.jpg"},
+        {
+            name: "Baksss",
+            id: 19700294,
+            img: "https://i.imgflip.com/3aun8x.jpg"},
         {
             name: "Valera",
             id: 19700295,
@@ -28,6 +31,26 @@ let initialState = {
             name: "Oreo",
             id: 19700296,
             img: "https://i.pinimg.com/originals/3c/43/79/3c43793225d7167513691eb2a525df2e.jpg"
+        },
+        {
+            name: "Toby",
+            id: 19700297,
+            img: "https://www.cathealth.com/images/how_to_take_cat_on_plane.jpg"
+        },
+        {
+            name: "Oskar",
+            id: 19700298,
+            img: "https://sadanduseless.b-cdn.net/wp-content/uploads/2018/11/funny-cat-closeup17.jpg"
+        },
+        {
+            name: "Karen",
+            id: 19700299,
+            img: "https://i2.wp.com/metro.co.uk/wp-content/uploads/2020/02/PRI_142383130.jpg?quality=90&strip=all&zoom=1&resize=480%2C304&ssl=1"
+        },
+        {
+            name: "Pizza",
+            id: 19700300,
+            img: "https://www.cybersalt.org/images/stories/cleanlaugh/cats/catmousenightmare.jpg"
         },
     ],
     messages: [
@@ -39,30 +62,33 @@ let initialState = {
     newMessageText: "",
 }
 
-const dialogsReducer = (state=initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: {
-            if (state.newMessageText==="")
-                break;
+            if (state.newMessageText === "")
+                return state;
 
             let newMessage = {
-                id: 5,
+                id: 6,
                 type: "myMessage",
                 text: state.newMessageText,
             }
-            state.messages.push(newMessage);
-            state.newMessageText = "";
-            break;
+
+            return {
+                ...state,
+                newMessageText: "",
+                messages:[...state.messages, newMessage]
+            };
         }
         case UPDATE_MESSAGE_TEXT: {
-            state.newMessageText = action.text;
-            break;
+            return {
+                ...state,
+                newMessageText: action.text
+            };
         }
         default:
             return state;
     }
-
-    return state;
 }
 
 export const sendMessageActionCreator = () => {

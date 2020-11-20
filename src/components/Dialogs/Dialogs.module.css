@@ -4,6 +4,8 @@
     min-height: 60vh;
 }
 .dialogsItems {
+    height: 30vw;
+    overflow:auto;
     padding: 1vw;
 }
 .dialogsItems .active {

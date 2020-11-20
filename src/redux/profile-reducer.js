@@ -47,28 +47,31 @@ const profileReducer = (state=initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
             if (state.newPostText==="")
-                break;
+                return state;
 
             let newPost = {
-                id: 5,
+                id: 6,
                 message: state.newPostText,
                 name: "Капитан Жмышенко",
                 likes: 0,
                 img: "https://i.kym-cdn.com/entries/icons/original/000/028/692/cat.jpg"
             }
-            state.posts.push(newPost);
-            state.newPostText = "";
-            break;
+
+            return {
+                ...state,
+                newPostText: "",
+                posts: [...state.posts, newPost]
+            };
         }
         case UPDATE_POST_TEXT: {
-            state.newPostText = action.text;
-            break;
+            return {
+                ...state,
+                newPostText: action.text
+            };
         }
         default:
             return state;
     }
-
-    return state;
 }
 
 export const addPostActionCreator = () => {

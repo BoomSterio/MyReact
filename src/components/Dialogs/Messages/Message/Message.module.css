@@ -8,6 +8,8 @@
     min-width:30px;
     max-width: 20vw;
     word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .myMessage {
@@ -22,5 +24,7 @@
     min-width:30px;
     max-width: 20vw; /* блок занимает ширину родителя, max-width её ограничивает */
     word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
