@@ -1,0 +1,34 @@
+.user {
+    display: grid;
+    grid-template-columns: 1fr 6fr 3fr;
+    background-color: #1F3041;
+    border:solid #151E27 1px;
+    margin: -1px 0.5vw;
+    padding: 0.5vw;
+    border-radius: 0.5vw;
+    height: 6em;
+}
+
+.avatar {
+    text-align: left;
+}
+.followBtn button {
+    width: 5rem;
+    height: 1.4rem;
+    font-size: 1rem;
+}
+
+.info {
+    text-align: left;
+}
+
+.location {
+    text-align: right;
+}
+
+.img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 40px;
+    object-fit: cover;
+}

@@ -63,27 +63,20 @@ const profileReducer = (state=initialState, action) => {
                 posts: [...state.posts, newPost]
             };
         }
+
         case UPDATE_POST_TEXT: {
             return {
                 ...state,
                 newPostText: action.text
             };
         }
+
         default:
             return state;
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
-export const postChangeActionCreator = (text) => {
-    return {
-        type: UPDATE_POST_TEXT,
-        text: text
-    }
-}
+export const addPostActionCreator = () => ({ type: ADD_POST})
+export const postChangeActionCreator = (text) => ({ type: UPDATE_POST_TEXT, text: text})
 
 export default profileReducer;

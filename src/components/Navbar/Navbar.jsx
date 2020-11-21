@@ -15,10 +15,10 @@ function Navbar() {
                 <NavLink to="/feed" activeClassName={st.active}>Feed</NavLink>
             </div>
             <div className={st.item}>
-                <NavLink to="/groups" activeClassName={st.active}>Groups</NavLink>
+                <NavLink to="/users" activeClassName={st.active}>Users</NavLink>
             </div>
             <div className={st.item}>
-                <NavLink to="/friends" activeClassName={st.active}>Friends</NavLink>
+                <NavLink to="/groups" activeClassName={st.active}>Groups</NavLink>
             </div>
             <div className={st.item}>
                 <NavLink to="/music" activeClassName={st.active}>Music</NavLink>
