@@ -1,4 +1,4 @@
-import logo from "./logoBID3s.png";
+import logo from "../../assets/images/logoBID3s.png";
 import st from './Header.module.css';
 
 function Header() {
