@@ -3,12 +3,19 @@ import st from "./Post.module.css";
 function Post(props) {
     return (
         <div className={st.item}>
-            <div>
+            <div className={st.img}>
                 <img
                     src={props.img}
                     alt="cpfp"
                 />
-                {props.message}
+            </div>
+            <div className={st.content}>
+                <div className={st.name}>
+                    {props.name}
+                </div>
+                <div>
+                    {props.message}
+                </div>
             </div>
             <div>
                 <span>like ({props.likes}) </span>

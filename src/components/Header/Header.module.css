@@ -4,9 +4,32 @@
     border: solid #7B8997 1px;
     border-top: none;
     background-color: #314A61;
-  }
-  .header img {
-    width: 80px;
-    padding-left: 10px;
-      padding-top:3px;
-  }
+}
+
+.img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.25em;
+    margin-left: 0.25em;
+}
+.img img {
+    width: 3.5em;
+}
+
+.slogan {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0em 2em;
+    color: white;
+    font-size: 1.25em;
+}
+
+.loginBlock {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0em 2em;
+    float: right;
+}
+.loginBlock a {
+    color: white;
+}

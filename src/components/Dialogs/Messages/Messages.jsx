@@ -14,7 +14,7 @@ function Messages(props) {
 
     function onMessageChange(newMessageElement) {
         let text = newMessageElement.target.value;
-        props.updateNewMessageText(text);
+        props.messageChange(text);
     }
 
     return (

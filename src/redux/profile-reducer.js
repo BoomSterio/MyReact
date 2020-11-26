@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
+const SET_USER_PROFILE = "SET_USER_PROFILE"
 
 let initialState = {
     posts: [
@@ -39,6 +40,7 @@ let initialState = {
             img: "https://pbs.twimg.com/media/C5AmsxoWIAAWlfS.jpg"
         },
     ],
+    profile: null,
     newPostText: "",
 
 };
@@ -63,12 +65,16 @@ const profileReducer = (state=initialState, action) => {
                 posts: [...state.posts, newPost]
             };
         }
-
         case UPDATE_POST_TEXT: {
             return {
                 ...state,
                 newPostText: action.text
             };
+        }
+        case SET_USER_PROFILE: {
+            return {
+                ...state, profile: action.profile
+            }
         }
 
         default:
@@ -76,7 +82,8 @@ const profileReducer = (state=initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST})
-export const postChangeActionCreator = (text) => ({ type: UPDATE_POST_TEXT, text: text})
+export const addPost = () => ({ type: ADD_POST});
+export const postChange = (text) => ({ type: UPDATE_POST_TEXT, text: text});
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export default profileReducer;

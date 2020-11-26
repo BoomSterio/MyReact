@@ -1,5 +1,5 @@
 .item {
-    color: #E89383;
+    color: white;
     background-color: #1F3041;
     margin: 1vw 0vw 1vw 0vw;
     text-shadow: 1px 1px 2px black;
@@ -9,13 +9,26 @@
     border-bottom: 0px;
     padding: 5px;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 1.1rem;
     vertical-align: middle;
 }
 
-.item img {
-    width: 50px;
-    height: 50px;
+.img {
+    display: inline-block;
+}
+.img img {
+    width: 3em;
+    height: 3em;
     border-radius: 30px;
     object-fit: cover;
+}
+
+.content {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+.name {
+    color: #E89383;
+    font-size: 1rem;
 }

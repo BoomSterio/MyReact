@@ -12,14 +12,34 @@
 .avatar {
     text-align: left;
 }
-.followBtn button {
+.followBtn  {
     width: 5rem;
-    height: 1.4rem;
+    height: 1.5rem;
     font-size: 1rem;
+    border-radius: 0.5vw;
+    background-color: #1F3041;
+    color: green;
+}
+
+.unfollowBtn  {
+    width: 5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5vw;
+    background-color: #1F3041;
+    color: darkred;
 }
 
 .info {
     text-align: left;
+}
+.fullName {
+    font-size: 1em;
+    color: #E89383
+}
+.status {
+    font-size: 0.9em;
+    padding-top: 0.1em;
 }
 
 .location {

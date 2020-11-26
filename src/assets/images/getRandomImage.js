@@ -19,6 +19,7 @@ function getRandomImage () {
         'https://sadanduseless.b-cdn.net/wp-content/uploads/2018/11/funny-cat-closeup17.jpg',
         'https://i2.wp.com/metro.co.uk/wp-content/uploads/2020/02/PRI_142383130.jpg?quality=90&strip=all&zoom=1&resize=480%2C304&ssl=1',
         'https://www.cybersalt.org/images/stories/cleanlaugh/cats/catmousenightmare.jpg',
+        'https://img-9gag-fun.9cache.com/photo/a7WVB9b_460s.jpg'
     ];
 
     let rand = Math.floor(Math.random() * images.length);

@@ -1,22 +1,24 @@
 import st from './ProfileInfo.module.css'
+import userPfp from "../../../assets/images/user.jpg";
+import sunrise from "../../../assets/images/sunrise.png"
 
-function ProfileInfo() {
+function ProfileInfo(props) {
     return (
         <div className={st.profileInfo}>
             <div>
                 <img className={st.banner}
-                     src="https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Switzerland-Country-Zermatt-Matterhorn-486574518-extravagantni-copy.jpg"
+                     src={sunrise}
                      alt="pfBanner"
                 />
             </div>
             <div className={st.pfp}>
-                <img src="https://img-9gag-fun.9cache.com/photo/a7WVB9b_460s.jpg"
+                <img src={(props.profile.photos.large == null) ? userPfp : props.profile.photos.large}
                      alt="pfp"
                 />
             </div>
             <div className={st.info}>
-                <div>Name</div>
-                <div>+ description</div>
+                <div className={st.fullName}>{props.profile.fullName}</div>
+                <div>{props.profile.aboutMe}</div>
             </div>
         </div>
     );

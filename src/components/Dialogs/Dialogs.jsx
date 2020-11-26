@@ -14,7 +14,7 @@ function Dialogs(props) {
                 {dialogsElements}
             </div>
             <div className={st.messages}>
-                <Messages state={props.dialogsPage} updateNewMessageText={props.updateNewMessageText}
+                <Messages state={props.dialogsPage} messageChange={props.messageChange}
                           sendMessage={props.sendMessage}/>
             </div>
         </div>

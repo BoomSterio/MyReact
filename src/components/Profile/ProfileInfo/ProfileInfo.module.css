@@ -33,3 +33,8 @@
     position: relative;
     top: -5.8vw;
 }
+
+.fullName {
+    color: #E89383;
+    font-size: 1.1em;
+}

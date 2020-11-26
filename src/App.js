@@ -1,23 +1,23 @@
 import "./App.css";
 import {BrowserRouter, Route} from "react-router-dom";
-import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Groups from "./components/Groups/Groups";
 import Feed from "./components/Feed/Feed";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App() {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path="/profile"  render={() => <Profile />}/>
+                    <Route path="/profile/:userId?"  render={() => <ProfileContainer />}/>
                     <Route path="/dialogs"  render={() => <DialogsContainer />}/>
                     <Route path="/feed"     render={() => <Feed />}/>
                     <Route path="/users"    render={() => <UsersContainer />}/>
