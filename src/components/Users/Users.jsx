@@ -7,8 +7,8 @@ function Users (props) {
    function  getUsersElements() {
         return props.users.map(u => <UserItem
             id={u.id} key={u.id} img={u.photos.small} fullName={u.name} location={u.location} status={u.status}
-            followed={u.followed}
-            follow={props.follow} unfollow={props.unfollow}/>);
+            followed={u.followed} isFollowingInProgress = {props.isFollowingInProgress}
+            follow={props.follow} unfollow={props.unfollow} toggleFollowingProgress={props.toggleFollowingProgress}/>);
     }
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);

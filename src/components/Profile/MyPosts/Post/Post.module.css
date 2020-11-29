@@ -10,7 +10,6 @@
     padding: 5px;
     font-weight: 500;
     font-size: 1.1rem;
-    vertical-align: middle;
 }
 
 .img {
@@ -24,11 +23,18 @@
 }
 
 .content {
+    vertical-align: top;
     display: inline-block;
     margin-left: 1.5em;
 }
 
 .name {
+    vertical-align: top;
     color: #E89383;
     font-size: 1rem;
 }
+
+.postText {
+    vertical-align: middle;
+}
+

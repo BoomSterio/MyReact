@@ -1,6 +1,7 @@
 import st from './ProfileInfo.module.css'
 import userPfp from "../../../assets/images/user.jpg";
 import sunrise from "../../../assets/images/sunrise.png"
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 function ProfileInfo(props) {
     return (
@@ -18,7 +19,7 @@ function ProfileInfo(props) {
             </div>
             <div className={st.info}>
                 <div className={st.fullName}>{props.profile.fullName}</div>
-                <div>{props.profile.aboutMe}</div>
+                <ProfileStatus status={props.profile.aboutMe}/>
             </div>
         </div>
     );

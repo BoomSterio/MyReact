@@ -13,7 +13,7 @@ function Post(props) {
                 <div className={st.name}>
                     {props.name}
                 </div>
-                <div>
+                <div className={st.postText}>
                     {props.message}
                 </div>
             </div>

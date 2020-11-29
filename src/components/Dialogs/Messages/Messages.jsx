@@ -24,7 +24,7 @@ function Messages(props) {
             </div>
             <div className={st.messageCreator}>
                 <textarea placeholder="Enter your message..." onChange={onMessageChange} ref={newMessageElement}
-                          value={props.state.newMessageText}></textarea>
+                          value={props.state.newMessageText} autoFocus={true}></textarea>
                 <button onClick={onSendMessage}>SEND</button>
             </div>
         </div>

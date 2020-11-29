@@ -33,10 +33,15 @@
 .info {
     text-align: left;
 }
+.info a {
+    text-decoration: none;
+}
+
 .fullName {
     font-size: 1em;
     color: #E89383
 }
+
 .status {
     font-size: 0.9em;
     padding-top: 0.1em;
@@ -51,4 +56,12 @@
     height: 5rem;
     border-radius: 40px;
     object-fit: cover;
+}
+
+button {
+    border-width:1.5px ;
+    transition: border-width 0.08s linear;
+}
+button:hover {
+    border-width: 0.175em;
 }

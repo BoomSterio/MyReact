@@ -1,6 +1,7 @@
 import st from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Messages from "./Messages/Messages";
+import {Redirect} from "react-router-dom";
 
 function Dialogs(props) {
     debugger;

@@ -21,7 +21,7 @@ function MyPosts(props) {
             <div className={st.postingBlock}>
                 <h3>My posts</h3>
                 <div className={st.postCreator}>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}></textarea>
+                    <textarea onChange={onPostChange} autoFocus={true} ref={newPostElement} value={props.newPostText}></textarea>
                     <button onClick={onAddPost}>ADD POST</button>
                 </div>
             </div>

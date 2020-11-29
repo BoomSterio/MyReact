@@ -37,4 +37,5 @@
 .fullName {
     color: #E89383;
     font-size: 1.1em;
+    text-shadow: 1px 1px 2px black;
 }
