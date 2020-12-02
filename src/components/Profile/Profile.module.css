@@ -3,6 +3,11 @@
     grid-template-columns: 68fr 32fr;
 
 }
+
+.personalBlock {
+    border-right: #7B8997 1px solid;
+}
+
 .mediaBlock {
     padding: 20px;
 }

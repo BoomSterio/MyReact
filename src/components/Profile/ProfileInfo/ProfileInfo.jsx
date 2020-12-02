@@ -19,7 +19,7 @@ function ProfileInfo(props) {
             </div>
             <div className={st.info}>
                 <div className={st.fullName}>{props.profile.fullName}</div>
-                <ProfileStatus status={props.profile.aboutMe}/>
+                <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     );

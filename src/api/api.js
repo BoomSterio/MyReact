@@ -25,13 +25,25 @@ export const usersAPI = {
 export const authAPI = {
     me() {
         return instance.get(`auth/me`)
+    },
+    loginUser(email, password, rememberMe=false) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+    },
+    logoutUser() {
+        return instance.delete(`auth/login`)
     }
 }
 
 export const profileAPI = {
     getProfile(userId) {
         return instance.get(`profile/${userId}`)
-    }
+    },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status/`, {status})
+    },
 }
 
 

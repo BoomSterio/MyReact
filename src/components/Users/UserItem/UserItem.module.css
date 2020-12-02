@@ -58,10 +58,25 @@
     object-fit: cover;
 }
 
-button {
-    border-width:1.5px ;
-    transition: border-width 0.08s linear;
+.followBtn {
+    border-width:2px ;
+    border-style: groove;
+    height: 1.5rem;
+    transition: border-width 0.2s ease;
+    transition: background-color 0.2s ease;
 }
-button:hover {
-    border-width: 0.175em;
+.unfollowBtn {
+    border-width:2px ;
+    border-style: groove;
+    height: 1.5rem;
+    transition: border-width 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+.followBtn:hover {
+    border-width: 0.2em;
+    background-color: #151E27;
+}
+.unfollowBtn:hover {
+    border-width: 0.2em;
+    background-color: #151E27;
 }

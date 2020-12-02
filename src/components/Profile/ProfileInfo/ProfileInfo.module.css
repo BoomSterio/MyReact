@@ -1,9 +1,6 @@
 .profileInfo {
     min-height: 21vw;
     max-height: 24vw;
-    border-bottom: #7B8997 1px solid;
-    border-right: #7B8997 1px solid;
-    border-radius: 3px;
 }
 
 .pfp {

@@ -11,8 +11,8 @@ function Profile(props) {
     else {
         return (
             <div className={st.grid}>
-                <div>
-                    <ProfileInfo profile={props.profile}/>
+                <div className={st.personalBlock}>
+                    <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
                     <MyPostsContainer/>
                 </div>
                 <div className={st.mediaBlock}>

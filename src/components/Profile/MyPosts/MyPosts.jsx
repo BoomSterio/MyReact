@@ -1,29 +1,21 @@
 import React from 'react';
 import st from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import PostForm from "./PostForm/PostForm";
 
 function MyPosts(props) {
-    let postsElements = props.posts.map(p => <Post name={p.name} message={p.message} likes={p.likes} img={p.img} key={p.id} id={p.id}/>);
+    let postsElements = props.posts.map(p => <Post name={p.name} message={p.message} likes={p.likes} img={p.img}
+                                                   key={p.id} id={p.id}/>);
 
-    let newPostElement = React.createRef();
-
-    function onAddPost() {
-        props.addPost();
-    }
-
-    function onPostChange() {
-        let text = newPostElement.current.value;
-        props.postChange(text);
+    function onAddPost(formData) {
+        props.addPost(formData.text);
     }
 
     return (
         <div>
             <div className={st.postingBlock}>
                 <h3>My posts</h3>
-                <div className={st.postCreator}>
-                    <textarea onChange={onPostChange} autoFocus={true} ref={newPostElement} value={props.newPostText}></textarea>
-                    <button onClick={onAddPost}>ADD POST</button>
-                </div>
+                <PostForm onSubmit={onAddPost}/>
             </div>
             <div className={st.posts}>
                 {postsElements}
@@ -31,5 +23,6 @@ function MyPosts(props) {
         </div>
     );
 }
+
 
 export default MyPosts;

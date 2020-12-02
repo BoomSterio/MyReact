@@ -4,7 +4,6 @@ import Messages from "./Messages/Messages";
 import {Redirect} from "react-router-dom";
 
 function Dialogs(props) {
-    debugger;
     const state = props.dialogsPage;
 
     const dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} img={d.img} key={d.id} id={d.id}/>);

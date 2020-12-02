@@ -1,20 +1,15 @@
 import React from 'react';
 import st from './Messages.module.css';
-import Message from "./Message/Message";
+import Message from "./MessageItem/Message";
+import MessageForm from "./MessageForm/MessageForm";
 
 function Messages(props) {
     let messagesElements = props.state.messages.map(m => <Message message={m.text} type={m.type} key={m.id}
                                                                   id={m.id}/>);
 
-    let newMessageElement = React.createRef();
-
-    function onSendMessage() {
-        props.sendMessage();
-    }
-
-    function onMessageChange(newMessageElement) {
-        let text = newMessageElement.target.value;
-        props.messageChange(text);
+    function onSendMessage(values) {
+        debugger
+        props.sendMessage(values.messageText);
     }
 
     return (
@@ -22,10 +17,8 @@ function Messages(props) {
             <div className={st.messages}>
                 {messagesElements}
             </div>
-            <div className={st.messageCreator}>
-                <textarea placeholder="Enter your message..." onChange={onMessageChange} ref={newMessageElement}
-                          value={props.state.newMessageText} autoFocus={true}></textarea>
-                <button onClick={onSendMessage}>SEND</button>
+            <div>
+                <MessageForm onSubmit={onSendMessage}/>
             </div>
         </div>
     );

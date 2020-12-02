@@ -1,5 +1,5 @@
 const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_MESSAGE_TEXT = "UPDATE-MESSAGE-TEXT";
+/*const RECIEVE_MESSAGE = "RECIEVE_MESSAGE";*/
 
 let initialState = {
     dialogs: [
@@ -59,32 +59,24 @@ let initialState = {
         {id: 3, type: "otherMessage", text: "tenet apero rotas"},
         {id: 4, type: "myMessage", text: "каво"},
     ],
-    newMessageText: "",
+
 }
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: {
-            if (state.newMessageText === "")
+            if (action.messageBody === undefined || action.messageBody === "")
                 return state;
 
             let newMessage = {
                 id: 6,
                 type: "myMessage",
-                text: state.newMessageText,
+                text: action.messageBody,
             }
 
             return {
                 ...state,
-                newMessageText: "",
                 messages:[...state.messages, newMessage]
-            };
-        }
-
-        case UPDATE_MESSAGE_TEXT: {
-            return {
-                ...state,
-                newMessageText: action.text
             };
         }
 
@@ -93,7 +85,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessage = () => ({type: SEND_MESSAGE})
-export const messageChange = (text) => ({type: UPDATE_MESSAGE_TEXT, text: text})
+export const sendMessage = (messageBody) => ({type: SEND_MESSAGE, messageBody: messageBody})
 
 export default dialogsReducer;

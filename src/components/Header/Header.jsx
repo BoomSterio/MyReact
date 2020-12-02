@@ -9,8 +9,19 @@ function Header(props) {
             <div className={st.slogan}>No hOOman zone.</div>
             <div className={st.loginBlock}>
                 {props.isAuth
-                    ? <NavLink to="/profile">{props.login}</NavLink>
-                    : <NavLink to="/login">login</NavLink>
+                    ?
+                    <div>
+                        <div>
+                            <NavLink to="/profile">{props.login}</NavLink>
+                        </div>
+                        <div>
+                            <button onClick={props.logout}>Log out</button>
+                        </div>
+                    </div>
+                    :
+                    <div>
+                        <NavLink to="/login"><button>Log in</button></NavLink>
+                    </div>
                 }
             </div>
         </header>
