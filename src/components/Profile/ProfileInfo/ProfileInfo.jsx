@@ -2,6 +2,7 @@ import st from './ProfileInfo.module.css'
 import userPfp from "../../../assets/images/user.jpg";
 import sunrise from "../../../assets/images/sunrise.png"
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
     return (
@@ -19,7 +20,7 @@ function ProfileInfo(props) {
             </div>
             <div className={st.info}>
                 <div className={st.fullName}>{props.profile.fullName}</div>
-                <ProfileStatus aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks aboutMe={props.profile.aboutMe} status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     );
