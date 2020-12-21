@@ -1,4 +1,4 @@
-import {maxLengthCreator, required} from "../../../../utils/validators/validator";
+import {maxLengthCreator} from "../../../../utils/validators/validator";
 import st from "../MyPosts.module.css";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../../common/Forms/FormsControls";

@@ -2,36 +2,36 @@ import st from "./UserItem.module.css";
 import userPfp from "../../../assets/images/user.jpg"
 import {NavLink} from "react-router-dom";
 
-function UserItem(props) {
+function UserItem({user, follow, unfollow, isFollowingInProgress}) {
     return (
-        <div className={st.user} key={props.id}>
+        <div className={st.user} key={user.id}>
             <div className={st.avatar}>
                 <div>
-                    <NavLink to={"/profile/" + props.id}>
-                        <img className={st.img} src={(props.img == null) ? userPfp : props.img} alt="userPfp"/>
+                    <NavLink to={"/profile/" + user.id}>
+                        <img className={st.img} src={(user.photos.small == null) ? userPfp : user.photos.small} alt="userPfp"/>
                     </NavLink>
                 </div>
-                <div> {props.followed
+                <div> {user.followed
                     ? <button className={st.unfollowBtn}
-                              disabled={props.isFollowingInProgress.some(id => id === props.id)}
+                              disabled={isFollowingInProgress.some(id => id === user.id)}
                               onClick={() => {
-                                  props.unfollow(props.id)
+                                  unfollow(user.id)
                               }}>Unfollow</button>
                     :
-                    <button className={st.followBtn} disabled={props.isFollowingInProgress.some(id => id === props.id)}
+                    <button className={st.followBtn} disabled={isFollowingInProgress.some(id => id === user.id)}
                             onClick={() => {
-                                props.follow(props.id)
+                                follow(user.id)
                             }}>Follow</button>} </div>
             </div>
             <div className={st.info}>
-                <NavLink to={"/profile/" + props.id}>
-                    <div className={st.fullName}>{props.fullName}</div>
+                <NavLink to={"/profile/" + user.id}>
+                    <div className={st.fullName}>{user.name}</div>
                 </NavLink>
-                <div className={st.status}>{props.status}</div>
+                <div className={st.status}>{user.status}</div>
             </div>
             <div className={st.location}>
-                <div>{"props.location.country"}</div>
-                <div>{"props.location.city"}</div>
+                <div>{"user.location.country"}</div>
+                <div>{"user.location.city"}</div>
             </div>
         </div>
 

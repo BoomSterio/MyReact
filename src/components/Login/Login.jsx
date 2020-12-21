@@ -8,9 +8,9 @@ const maxPassLength = maxLengthCreator(16);
 const minPassLength = minLengthCreator(4);
 const maxEmailLength = maxLengthCreator(28);
 
-function LoginForm(props) {
+function LoginForm({handleSubmit, error}) {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field name={"email"} component={Input} validate={[required, maxEmailLength]} placeholder={"Email"}/>
             </div>
@@ -20,9 +20,9 @@ function LoginForm(props) {
             <div>
                 <Field name={"rememberMe"} component={Input} type={"checkbox"}/><span>Remember me</span>
             </div>
-            {props.error &&
+            {error &&
                 <div className={st.formSummaryError}>
-                    {props.error}
+                    {error}
                 </div>}
             <div>
                 <button>Login</button>

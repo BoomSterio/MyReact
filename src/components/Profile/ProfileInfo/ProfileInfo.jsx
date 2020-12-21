@@ -1,7 +1,6 @@
 import st from './ProfileInfo.module.css'
 import userPfp from "../../../assets/images/user.jpg";
 import sunrise from "../../../assets/images/sunrise.png"
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 function ProfileInfo(props) {

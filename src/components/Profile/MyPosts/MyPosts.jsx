@@ -3,11 +3,14 @@ import st from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import PostForm from "./PostForm/PostForm";
 
-function MyPosts(props) {
-    let postsElements = props.posts.map(p => <Post name={p.name} message={p.message} likes={p.likes} img={p.img}
+const MyPosts = React.memo(props => {
+    console.log("MYPOSTS RENDER");
+
+    let postsElements = [...props.posts].reverse().map(p => <Post name={p.name} message={p.message} likes={p.likes}
+                                                   img={p.img}
                                                    key={p.id} id={p.id}/>);
 
-    function onAddPost(formData) {
+    const onAddPost = (formData) => {
         props.addPost(formData.text);
     }
 
@@ -22,7 +25,7 @@ function MyPosts(props) {
             </div>
         </div>
     );
-}
+})
 
 
 export default MyPosts;

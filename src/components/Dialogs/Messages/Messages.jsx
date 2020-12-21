@@ -8,7 +8,6 @@ function Messages(props) {
                                                                   id={m.id}/>);
 
     function onSendMessage(values) {
-        debugger
         props.sendMessage(values.messageText);
     }
 

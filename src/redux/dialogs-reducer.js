@@ -1,4 +1,4 @@
-const SEND_MESSAGE = "SEND-MESSAGE";
+const SEND_MESSAGE = "dialogsPage/SEND-MESSAGE";
 /*const RECIEVE_MESSAGE = "RECIEVE_MESSAGE";*/
 
 let initialState = {

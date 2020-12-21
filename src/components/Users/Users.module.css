@@ -10,28 +10,6 @@
     margin: 0.5em;
 }
 
-.pageSelector {
-    text-align: center;
-    user-select:none
-}
-.pageSelector div {
-    display: inline-block;
-    margin:0em 0.2em;
-}
-
-.selectedPage {
-    display: inline-block;
-    font-weight: 600;
-    font-size: 1.4em;
-    margin:0em 1em;
-    color: gold;
-}
-.unselectedPage {
-    display: inline-block;
-    font-size: 1.15em;
-    margin:0em 1em;
-}
-
 .usersItems {
     padding: 1vw 4vw;
     text-align: center;
