@@ -1,5 +1,3 @@
-import st from './Groups.module.css'
-
 function Groups(props) {
     return (
         <div>

@@ -1,7 +1,7 @@
 import st from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
-{/*to do: картинки вместо ссылок*/}
+/*to do: картинки вместо ссылок*/
 function Navbar() {
     return (
         <nav className={st.nav}>

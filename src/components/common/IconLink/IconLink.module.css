@@ -1,0 +1,8 @@
+.linkBtn img {
+    width: 2.2vw;
+    height: 2.2vw;
+    border-radius: 1vw;
+    margin: 0vw 0.15vw;
+    margin-top: 0.5vw;
+    cursor: pointer;
+}

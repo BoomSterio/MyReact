@@ -1,9 +1,11 @@
 import {profileAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = "profilePage/ADD_POST";
 const DELETE_POST = "profilePage/DELETE_POST"
 const SET_USER_PROFILE = "profilePage/SET_USER_PROFILE";
 const SET_STATUS = "profilePage/SET_STATUS";
+const SAVE_PHOTO_SUCCESS = "profilePage/SAVE_PHOTO_SUCCESS"
 
 let initialState = {
     posts: [
@@ -82,6 +84,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state, posts: state.posts.filter(p => p.id !== action.postId)
             }
         }
+        case SAVE_PHOTO_SUCCESS: {
+            return {
+                ...state, profile: {...state.profile, photos: action.photos}
+            }
+        }
 
         default:
             return state;
@@ -92,6 +99,7 @@ export const addPost = (text) => ({type: ADD_POST, text});
 export const deletePost = (postId) => ({type: DELETE_POST, postId});        //to do
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 //thunks
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -100,14 +108,34 @@ export const getUserProfile = (userId) => async (dispatch) => {
 }
 
 export const getStatus = (userId) => async (dispatch) => {
-    let responce = await profileAPI.getStatus(userId)
+    let responce = await profileAPI.getStatus(userId);
     dispatch(setStatus(responce.data));
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    let responce = await profileAPI.updateStatus(status)
+    let responce = await profileAPI.updateStatus(status);
     if (responce.data.resultCode === 0) {
         dispatch(setStatus(status));
+    }
+}
+
+export const savePhoto = (file) => async (dispatch) => {
+    let responce = await profileAPI.savePhoto(file);
+    if (responce.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(responce.data.data.photos));
+    }
+}
+
+export const saveProfileInfo = (profile) => async (dispatch) => {
+    let responce = await profileAPI.saveProfileInfo(profile);
+    if (responce.data.resultCode === 0) {
+        dispatch(setUserProfile(profile));
+    }
+    else {
+        let message = responce.data.messages.length >= 0 ? responce.data.messages[0] : "Unknown error";
+        let action = stopSubmit("aboutForm", {_error: message});
+        dispatch(action);
+        return Promise.reject(responce.data.messages[0]);
     }
 }
 

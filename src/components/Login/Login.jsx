@@ -8,7 +8,7 @@ const maxPassLength = maxLengthCreator(16);
 const minPassLength = minLengthCreator(4);
 const maxEmailLength = maxLengthCreator(28);
 
-function LoginForm({handleSubmit, error}) {
+function LoginForm({handleSubmit, error, captchaUrl}) {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -20,6 +20,16 @@ function LoginForm({handleSubmit, error}) {
             <div>
                 <Field name={"rememberMe"} component={Input} type={"checkbox"}/><span>Remember me</span>
             </div>
+            {captchaUrl &&
+            <div>
+                <div>
+                    <img src={captchaUrl} alt={"captcha"}/>
+                </div>
+                <div>
+                    <Field name={"captcha"} component={Input} type={"input"} placeholder={"Symbols from image"}
+                    validate={[required]}/>
+                </div>
+            </div>}
             {error &&
                 <div className={st.formSummaryError}>
                     {error}
@@ -35,14 +45,14 @@ const LoginReduxForm = reduxForm({form: "login"}) (LoginForm)  //hoc
 
 function Login(props) {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
 
     return (
         <div>
             <h2>Login</h2>
             <div>
-                <LoginReduxForm onSubmit={onSubmit}/>
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
             </div>
         </div>
     )

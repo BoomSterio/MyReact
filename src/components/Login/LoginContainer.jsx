@@ -9,7 +9,7 @@ class LoginContainer extends React.Component {
     render() {
         if (!this.props.isAuth) {
             return (
-                <Login {...this.props} />
+                <Login {...this.props}/>
             );
         }
         else {
@@ -19,7 +19,8 @@ class LoginContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 })
 
 export default compose(

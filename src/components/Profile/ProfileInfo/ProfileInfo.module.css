@@ -1,22 +1,45 @@
 .profileInfo {
     min-height: 21vw;
-    max-height: 24vw;
+    max-height: 34vw;
 }
 
 .pfp {
+    position: relative;
     align-content: center;
     text-align: center;
-    position: relative;
-    top: -5.7vw
+    top: -5.7vw;
 }
+
 .pfp img {
     width: 7.5vw;
     height: 7.5vw;
     object-fit: cover;
-    border-radius: 64px;
+    object-position: center;
+    border-radius: 4vw;
 }
 
-.banner {
+.myPfp {
+    position: relative;
+    align-content: center;
+    text-align: center;
+    top: -5.7vw;
+}
+
+.myPfp img {
+    width: 7.5vw;
+    height: 7.5vw;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4vw;
+
+    transition: all .3s ease;
+}
+
+.myPfp img:hover {
+    filter: hue-rotate(-20deg) blur(2px) brightness(57%);
+}
+
+.banner img{
     height: 15vw;
     width: 98%;
     object-fit: cover;
@@ -25,14 +48,86 @@
     padding-top: 0;
 }
 
+.photoLoader {
+    text-align: center;
+    position: relative;
+    top: -1.45vw;
+    left: 24.6vw;
+    margin: 0.09vw;
+    width: 1.5vw;
+    height: 1vw;
+}
+
+.inputFile {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputFileButton img {
+    width:1vw;
+    height:1vw;
+    border-radius: 0.25vw;
+    object-fit: cover;
+    object-position: center;
+    background-color: cornflowerblue;
+}
+
+.inputFile + .inputFileButton {
+    cursor: pointer;
+}
+.inputFileButton img:hover {
+    background-color: darkslategrey;
+}
+
+.inputFile + .inputFileLabel {
+    cursor: pointer;
+}
+
+.myInfo {
+    text-align: center;
+    position: relative;
+    top: -7.1vw;
+}
+
 .info {
     text-align: center;
     position: relative;
-    top: -5.8vw;
+    top: -6vw;
 }
 
 .fullName {
     color: #E89383;
     font-size: 1.1em;
     text-shadow: 1px 1px 2px black;
+}
+
+.infoAbout {
+    padding: 0vw 1vw;
+    position: relative;
+    text-align: left;
+    top: -4vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*overflow:auto;*/
+}
+
+.settingsBtn {
+    margin-left: -0.15vw;
+}
+
+.settingsBtn img{
+    width: 1.4vw;
+    height: 1.4vw;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.settingsBtn img:hover {
+    width: 1.5vw;
+    height: 1.5vw;
+    transform: rotate(45deg);
 }

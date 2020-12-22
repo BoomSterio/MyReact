@@ -7,12 +7,13 @@ import Preloader from "../common/Preloader/Preloader";
 function Profile(props) {
     if (!props.profile) {
         return <Preloader/>
-    }
-    else {
+    } else {
         return (
             <div className={st.grid}>
                 <div className={st.personalBlock}>
-                    <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+                    <ProfileInfo isOwner={props.isOwner} profile={props.profile} status={props.status}
+                                 updateStatus={props.updateStatus} savePhoto={props.savePhoto}
+                                 saveProfileInfo={props.saveProfileInfo}/>
                     <MyPostsContainer/>
                 </div>
                 <div className={st.mediaBlock}>

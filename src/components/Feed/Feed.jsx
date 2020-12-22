@@ -1,5 +1,3 @@
-import st from './Feed.module.css'
-
 function Feed(props) {
     return (
         <div>
