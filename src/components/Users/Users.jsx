@@ -5,7 +5,7 @@ import Paginator from "../common/Paginator/Paginator";
 
 function Users(props) {
     const usersElements = props.users.map(u => <UserItem
-        user={u}
+        user={u} key={u.id}
         isFollowingInProgress={props.isFollowingInProgress}
         follow={props.follow} unfollow={props.unfollow}/>);
     return (

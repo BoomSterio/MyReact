@@ -2,46 +2,17 @@ import st from './ProfileInfo.module.css';
 import userPfp from "../../../assets/images/user.jpg";
 import sunrise from "../../../assets/images/sunrise.png";
 import download from "../../../assets/images/download.png";
-import settings from "../../../assets/images/settings.png";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 import Preloader from "../../common/Preloader/Preloader";
-import IconLink from "../../common/IconLink/IconLink";
 import {useState} from "react";
 import ProfileAboutForm from "./ProfileAboutForm/ProfileAboutForm";
+import ProfileAbout from "./ProfileAbout/ProfileAbout";
 
 const ProfileInfo = (props) => {
     let [editMode, setEditMode] = useState(false);
 
     if (!props.profile) {
         return <Preloader/>;
-    }
-
-    const ProfileAbout = (props) => {
-        return (
-            <div className={st.infoAbout}>
-                <div>
-                    {props.profile.aboutMe &&
-                    <div>
-                        <b>About me: </b>{props.profile.aboutMe}
-                    </div>}
-                    <div>
-                        <b>Looking for a job: </b>{props.profile.lookingForAJob ? "Yes" : "No"}
-                    </div>
-                    {props.profile.lookingForAJob &&
-                    <div>
-                        <b>Skills: </b>{props.profile.lookingForAJobDescription}
-                    </div>}
-                    <div>
-                        {contactsIcons}
-                    </div>
-                    {props.isOwner &&
-                    <div>
-                        <label className={st.settingsBtn} onClick={props.goToEditMode}><img src={settings}
-                                                                                            alt={"editModeBtn"}/></label>
-                    </div>}
-                </div>
-            </div>
-        )
     }
 
     const onSubmit = (formData) => {
@@ -56,9 +27,6 @@ const ProfileInfo = (props) => {
         }
     }
 
-    const contacts = props.profile.contacts;
-    const contactsIcons = Object.keys(contacts).map((site, i) => <IconLink type={site}
-                                                                           link={contacts[site]}/>)
     return (
         <div className={st.profileInfo}>
             <div className={st.banner}>

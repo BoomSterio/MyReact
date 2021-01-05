@@ -7,7 +7,7 @@ const ProfileStatusWithHooks = (props) => {
 
     useEffect(() =>{
         setStatus(props.status);
-    }, [props.status]);
+    }, [props.status]);     //function will be executed when props.status is changed
 
 
     const activateEditMode = () => {

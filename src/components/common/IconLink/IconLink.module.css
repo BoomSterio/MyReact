@@ -5,4 +5,10 @@
     margin: 0vw 0.15vw;
     margin-top: 0.5vw;
     cursor: pointer;
+    transition: all .3s ease;
+}
+
+.linkBtn img:hover {
+
+    filter: hue-rotate(-10deg) brightness(80%);
 }

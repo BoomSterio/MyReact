@@ -1,0 +1,26 @@
+.infoAbout {
+    padding: 0vw 1vw;
+    position: relative;
+    text-align: left;
+    top: -4vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*overflow:auto;*/
+}
+
+.settingsBtn {
+    margin-left: -0.15vw;
+}
+
+.settingsBtn img{
+    width: 1.4vw;
+    height: 1.4vw;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.settingsBtn img:hover {
+    width: 1.5vw;
+    height: 1.5vw;
+    transform: rotate(45deg);
+}

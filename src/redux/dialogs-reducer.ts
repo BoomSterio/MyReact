@@ -1,6 +1,17 @@
 const SEND_MESSAGE = "dialogsPage/SEND-MESSAGE";
 /*const RECIEVE_MESSAGE = "RECIEVE_MESSAGE";*/
 
+type DialogType = {
+    name: string
+    id: number
+    img: string
+}
+type MessageType = {
+    id: number
+    type: string
+    text: string
+}
+
 let initialState = {
     dialogs: [
         {
@@ -52,17 +63,19 @@ let initialState = {
             id: 19700300,
             img: "https://www.cybersalt.org/images/stories/cleanlaugh/cats/catmousenightmare.jpg"
         },
-    ],
+    ] as Array<DialogType>,
+
     messages: [
-        {id: 1, type: "otherMessage", text: "iuwbipudscvpsiudvo dasoduo wdu qiwdbiu"},
-        {id: 2, type: "myMessage", text: "это сарказм?"},
-        {id: 3, type: "otherMessage", text: "tenet apero rotas"},
+        {id: 1, type: "otherMessage", text: "Чем отличается негр от собаки"},
+        {id: 2, type: "myMessage", text: "da?"},
+        {id: 3, type: "otherMessage", text: "перед собакой есть след от торможения"},
         {id: 4, type: "myMessage", text: "каво"},
-    ],
-
+        {id: 5, type: "otherMessage", text: "а ещё собака с радостью встречает своего хозяина"},
+    ] as Array<MessageType>,
 }
+export type InitialStateType = typeof initialState;
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SEND_MESSAGE: {
             if (action.messageBody === undefined || action.messageBody === "")
@@ -85,6 +98,11 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessage = (messageBody) => ({type: SEND_MESSAGE, messageBody: messageBody})
+type SendMessageActionType = {
+    type: typeof SEND_MESSAGE
+    messageBody: string
+}
+
+export const sendMessage = (messageBody: string): SendMessageActionType => ({type: SEND_MESSAGE, messageBody})
 
 export default dialogsReducer;
