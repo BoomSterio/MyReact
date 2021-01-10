@@ -25,7 +25,7 @@ function Groups(props) {
     return (
         <>
             <Mouse>
-                <img src={userPfp}/>
+                <img src={userPfp} alt={"mouse"}/>
             </Mouse>
         </>
     );
