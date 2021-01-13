@@ -1,42 +1,102 @@
-import UserItem from "./UserItem/UserItem";
-import st from "./Users.module.css";
-import React, {FC} from "react";
-import Paginator from "../common/Paginator/Paginator";
-import {UserType} from "../../types/types";
+import UserItem from './UserItem/UserItem'
+import st from './Users.module.css'
+import React, {FC, useEffect} from 'react'
+import Paginator from '../common/Paginator/Paginator'
+import UsersSearchForm from './UsersSearchForm/UsersSearchForm'
+import {FilterType, requestUsers, follow, unfollow} from '../../redux/users-reducer'
+import Preloader from '../common/Preloader/Preloader'
+import {useDispatch, useSelector} from 'react-redux'
+import {
+    getCurrentPage,
+    getIsFetching,
+    getIsFollowingInProgress,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers,
+    getUsersFilter
+} from '../../redux/users-selectors'
+import {useHistory} from 'react-router-dom'
+import * as queryString from 'querystring'
 
-type Props = {
-    users: Array<UserType>
-    followingInProgress: Array<number>
-    totalUsersCount: number
-    pageSize: number
-    currentPage: number
-    follow: (userId: number) => void
-    unfollow: (userId: number) => void
-    onPageSelector: (pageNumber: number) => void
-}
+type Props = {}
+
+type QueryType = { term?: string; page?: string; friend?: string }
 
 const Users: FC<Props> = (props) => {
-    const usersElements = props.users.map(u => <UserItem
+    const users = useSelector(getUsers)
+    const totalUsersCount = useSelector(getTotalUsersCount)
+    const currentPage = useSelector(getCurrentPage)
+    const pageSize = useSelector(getPageSize)
+    const filter = useSelector(getUsersFilter)
+    const followingInProgress = useSelector(getIsFollowingInProgress)
+    const isFetching = useSelector(getIsFetching)
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
+        const parsed = queryString.parse(history.location.search.substr(1)) as QueryType
+
+        let actualPage = currentPage
+        if (parsed.page)
+            actualPage = Number(parsed.page)
+
+        let actualFilter = filter
+        if (parsed.term)
+            actualFilter = {...actualFilter, term: parsed.term as string}
+        if (parsed.friend)
+            actualFilter = {...actualFilter, friend: parsed.friend === 'null' ? null : parsed.friend === 'true' ? true : false}
+
+            dispatch(requestUsers(actualPage, pageSize, actualFilter))
+    }, [])
+
+    useEffect(() => {
+        const query: QueryType = {}
+
+        if(filter.term)
+            query.term = filter.term
+        if(filter.friend !== null)
+            query.friend = String(filter.friend)
+        if(currentPage !== 1)
+            query.page = String(currentPage)
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage])
+
+    const onPageSelector = (pageNumber: number) => {
+        dispatch(requestUsers(pageNumber, pageSize, filter))
+    }
+    const onFilterChanged = (filter: FilterType) => {
+        dispatch(requestUsers(1, pageSize, filter))
+    }
+
+    const onFollow = (userId: number) => {
+        dispatch(follow(userId))
+    }
+
+    const OnUnfollow = (userId: number) => {
+        dispatch(unfollow(userId))
+    }
+
+    const usersElements = users.map(u => <UserItem
         user={u} key={u.id}
-        followingInProgress={props.followingInProgress}
-        follow={props.follow} unfollow={props.unfollow}/>);
+        followingInProgress={followingInProgress}
+        follow={onFollow} unfollow={OnUnfollow}/>)
+
     return (
         <div className={st.usersPage}>
-            <div className={st.filters}>
-                <span className={st.usersSwitch}>Friends</span>
-                <span className={st.usersSwitch}>Requests</span>
-                <span className={st.usersSwitch}>All users</span>
-                <span className={st.usersSearch}><input/></span>
-                <span><button onClick={() => {
-                }}>Find</button></span>
-            </div>
-            <Paginator totalItemsCount={props.totalUsersCount} pageSize={props.pageSize} currentPage={props.currentPage}
-                       onPageSelector={props.onPageSelector}/>
+            <UsersSearchForm filter={filter} onFilterChanged={onFilterChanged}/>
+            <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize}
+                       currentPage={currentPage}
+                       onPageSelector={onPageSelector}/>
             <div className={st.usersItems}>
+                {isFetching ? <Preloader/> : null}
                 {usersElements}
             </div>
         </div>
-    );
+    )
 }
-
-export default Users;
+export default Users

@@ -8,7 +8,7 @@ let initialState = {
         {
             id: 1,
             message: "Hi bro",
-            name: "Kabluk Jma",
+            name: "Яна Цист",
             likes: 69,
             img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm_fOn75B7WzCl9gIhBqAqjiSmCIqwdQrDEHzf0HTIfCqCq1Vj71iszAMirZc4alSA0ygIgWxOAY5fiSypsQTCvd6r4uNmGqjt70ueivg&usqp=CAU&ec=45725303"
         },
@@ -36,7 +36,7 @@ let initialState = {
         {
             id: 5,
             message: "это я, киборг",
-            name: "Герой Украины",
+            name: "Жечка Дырова",
             likes: 61,
             img: "https://pbs.twimg.com/media/C5AmsxoWIAAWlfS.jpg"
         },

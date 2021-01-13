@@ -1,0 +1,20 @@
+.filters {
+    height: 4em;
+    line-height: 4em;
+    padding: 0vw 4.5vw;
+    background-color: #1F3041;
+
+}
+.filters button {
+    height: 2em;
+    margin: 0.5em;
+}
+
+
+
+.usersSwitch {
+    margin-right: 0.3em;
+}
+.filters label{
+    margin-right: 1em;
+}

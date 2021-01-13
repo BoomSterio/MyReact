@@ -8,6 +8,7 @@
     border: 2px solid #4C89C6;
     border-radius: 4px;
     border-bottom: none;
+    color: black
 }
 .messageCreator div {
     width: 85%;

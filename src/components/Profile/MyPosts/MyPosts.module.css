@@ -11,6 +11,7 @@
     padding-left: 1vw;
     padding-right: 1vw;
     text-align: center;
+    color: black
 }
 .postCreator textarea {
     display: block;

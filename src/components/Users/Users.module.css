@@ -1,21 +1,5 @@
-.filters {
-    height: 4em;
-    line-height: 4em;
-    padding: 0vw 4.5vw;
-    background-color: #1F3041;
-
-}
-.filters button {
-    height: 2em;
-    margin: 0.5em;
-}
-
 .usersItems {
     padding: 1vw 4vw;
     text-align: center;
-}
-
-.usersSwitch {
-    margin-right: 1em;
 }
 

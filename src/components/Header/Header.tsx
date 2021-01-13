@@ -1,19 +1,72 @@
-import logo from "../../assets/images/logoBID3s.png";
-import st from './Header.module.css';
-import {NavLink} from "react-router-dom";
-import React from "react";
+import logo from '../../assets/images/icon.png'
+import st from './Header.module.css'
+import {Link, NavLink} from 'react-router-dom'
+import React from 'react'
+import {Layout, Avatar, Button, Col, Menu, Row} from 'antd'
+import {useDispatch, useSelector} from 'react-redux'
+import {getIsAuth, getUserLogin} from '../../redux/auth-selectors'
+import {logout} from '../../redux/auth-reducer'
 
-type Props = {
-    isAuth: boolean
-    login: string | null
-    logout: () => void
-}
+type Props = {}
 
 //todo: change logo and design login/logout btn
 const Header: React.FC<Props> = (props) => {
+    const isAuth = useSelector(getIsAuth)
+    const login = useSelector(getUserLogin)
+
+    const dispatch = useDispatch()
+
+    const onLogout = () => {
+        dispatch(logout())
+    }
+
     return (
-        <header className={st.header}>
-            <div className={st.img}><img src={logo} alt="logo"/></div>
+        <Layout.Header className="header">
+            <Row>
+                <Col span={1}>
+                    <div className="logo">
+                        <Link to={'/about'}>
+                            <img src={logo} alt={'logo'} style={{filter: 'invert(100%)', height: '3.5vw'}}/>
+                        </Link>
+                    </div>
+                </Col>
+                <Col span={19}>
+                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[]}>
+                        <Menu.Item key="1">
+                            <Link to="/profile">Profile</Link>
+                        </Menu.Item>
+                    </Menu>
+                </Col>
+                <Col span={2}>
+                    <div className={st.loginBlock}>
+                        {isAuth
+                            ?
+                            <div>
+                                <div>
+                                    <Link to="/profile">
+                                        <Avatar alt={login as string} style={{color: 'white', backgroundColor: '#E89383'}}>
+                                            {login ? login.charAt(0) : 'U'}
+                                        </Avatar>
+                                    </Link>
+                                </div>
+                            </div>
+                            :
+                            <></>}
+                    </div>
+                </Col>
+                <Col span={2}>
+                    {isAuth
+                        ?
+                        <div>
+                            <Button onClick={onLogout}>Log out</Button>
+                        </div>
+                        :
+                        <div>
+                            <Button><Link to="/login">Log in</Link></Button>
+                        </div>}
+                </Col>
+
+                {/*<div className={st.img}><img src={logo} alt="logo"/></div>
             <div className={st.slogan}>No hOOman zone.</div>
             <div className={st.loginBlock}>
                 {props.isAuth
@@ -31,9 +84,10 @@ const Header: React.FC<Props> = (props) => {
                         <NavLink to="/login"><button>Log in</button></NavLink>
                     </div>
                 }
-            </div>
-        </header>
-    );
+            </div>*/}
+            </Row>
+        </Layout.Header>
+    )
 }
 
-export default Header;
+export default Header

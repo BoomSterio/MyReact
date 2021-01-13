@@ -1,7 +1,11 @@
 import st from "./PMedia.module.css";
 import FriendsBanner from "./FriendsBanner/FriendsBanner";
 
-function PMedia() {
+type Props = {
+
+}
+
+const PMedia: React.FC<Props> = (props) => {
     return (
         <div>
             <div className={st.media}>

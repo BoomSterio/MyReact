@@ -9,8 +9,8 @@ type Props = {
     onPageSelector: (pageNumber: number) => void
 }
 
-const Paginator: React.FC<Props> = (props) => {
-    let pagesCount = Math.ceil(props.totalItemsCount / props.pageSize);
+const Paginator: React.FC<Props> = ({currentPage = 1, pageSize = 10, ...props}) => {
+    let pagesCount = Math.ceil(props.totalItemsCount / pageSize);
     let pages: Array<number> = [];
 
     for (let i = 1; i <= pagesCount; i++) {
@@ -25,7 +25,7 @@ const Paginator: React.FC<Props> = (props) => {
         })
     };
 
-    let now = props.currentPage;
+    let now = currentPage;
 
     return (
         <div className={st.paginator}>

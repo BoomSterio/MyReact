@@ -3,6 +3,7 @@ import userPfp from "../../../assets/images/user.jpg"
 import {NavLink} from "react-router-dom";
 import {UserType} from "../../../types/types";
 import React from "react";
+import {Button} from 'antd'
 
 type Props = {
     user: UserType
@@ -22,10 +23,10 @@ const UserItem: React.FC<Props> = ({user, follow, unfollow, followingInProgress}
                     </NavLink>
                 </div>
                 <div>
-                    <button className={user.followed ? st.unfollowBtn : st.followBtn}
+                    <Button className={user.followed ? st.unfollowBtn : st.followBtn}
                             disabled={followingInProgress.some((id: number) => id === user.id)}
                             onClick={user.followed ? () => {unfollow(user.id)} : () => {follow(user.id)}}>
-                        {user.followed ? "Unfollow" : "Follow"}</button>
+                        {user.followed ? "Unfollow" : "Follow"}</Button>
                 </div>
             </div>
             <div className={st.info}>
