@@ -1,15 +1,14 @@
-import st from "./IconLink.module.css";
-import github from "../../../assets/images/github2.png";
-import vk from "../../../assets/images/vk.png";
-import youtube from "../../../assets/images/youtube.png"
-import twitter from "../../../assets/images/twitter.png"
-import facebook from "../../../assets/images/facebook.png"
-import instagram from "../../../assets/images/instagram.png"
-import website from "../../../assets/images/website.png"
-import mainLink from "../../../assets/images/mainLink2.png"
-import {Link} from "react-router-dom";
-import React from "react";
-import {ContactsType} from "../../../types/types";
+import st from './IconLink.module.css'
+import github from '../../../assets/images/github2.png'
+import vk from '../../../assets/images/vk.png'
+import youtube from '../../../assets/images/youtube.png'
+import twitter from '../../../assets/images/twitter.png'
+import facebook from '../../../assets/images/facebook.png'
+import instagram from '../../../assets/images/instagram.png'
+import website from '../../../assets/images/website.png'
+import mainLink from '../../../assets/images/mainLink2.png'
+import React from 'react'
+import {ContactsType} from '../../../types/types'
 
 const Websites = {
     github: github,
@@ -32,19 +31,18 @@ const IconLink: React.FC<Props> = ({link, type}) => {
         return null
     }
 
+    if (!link.startsWith("https://") && !link.startsWith("www")) {
+        link = "https://" + link;
+    }
+
     const icon = Websites[type as keyof ContactsType];
 
     function onLinkClick() {
-        if (!link.startsWith("https://") && !link.startsWith("www")) {
-            link = "https://" + link;
-        }
-        //return <Redirect exact to={link}/>
         // @ts-ignore
         window.location = link as Location;
     }
 
-    return <Link to={""} onClick={onLinkClick} title={link} className={st.linkBtn}><img src={icon}
-                                                                                        alt={"iconLink"}/></Link>
+    return <span onClick={onLinkClick} title={link} className={st.linkBtn}><img src={icon} alt={"iconLink"}/></span>
 }
 
 export default IconLink;

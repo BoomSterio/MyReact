@@ -1,6 +1,4 @@
 .icons {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-left: 1vw;
     padding-right: 1vw;
 }
@@ -9,12 +7,12 @@
 }
 
 .icon {
-
+    text-align: center;
 }
 .icon img {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
+    width: 3.8vw;
+    height: 3.8vw;
+    border-radius: 35px;
     object-fit: cover;
 }
 
@@ -26,4 +24,12 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 17px;
+}
+.friendsShortcut button {
+    border: none
+}
+
+.friendsIcons {
+    text-align: center;
+    padding: 0 1.1vw
 }

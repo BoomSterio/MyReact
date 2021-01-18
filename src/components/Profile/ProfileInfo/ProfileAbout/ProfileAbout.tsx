@@ -18,7 +18,8 @@ const ProfileAbout: React.FC<Props> = (props) => {
     return (
         <div className={st.infoAbout}>
             <div>
-                <div onDoubleClick={props.isOwner ? props.goToEditMode : () => {}}>
+                <div onDoubleClick={props.isOwner ? props.goToEditMode : () => {
+                }}>
                     {props.profile.aboutMe &&
                     <div>
                         <b>About me: </b>{props.profile.aboutMe}
@@ -34,10 +35,14 @@ const ProfileAbout: React.FC<Props> = (props) => {
                 <div>
                     {contactsIcons}
                 </div>
+
+            </div>
+            <div style={{verticalAlign:'bottom', display:'inline-block'}}>
                 {props.isOwner &&
-                <div>
-                    <label className={st.settingsBtn} onClick={props.goToEditMode}><img src={settings}
-                                                                                        alt={'editModeBtn'}/></label>
+                <div className={st.settingsBtn}>
+                    <label onClick={props.goToEditMode}>
+                        <img src={settings} alt={'editModeBtn'}/>
+                    </label>
                 </div>}
             </div>
         </div>

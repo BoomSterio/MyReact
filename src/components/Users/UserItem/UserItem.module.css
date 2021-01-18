@@ -1,12 +1,11 @@
 .user {
-    display: grid;
-    grid-template-columns: 1fr 6fr 3fr;
+
     background-color: #1F3041;
     border:solid #151E27 1px;
     margin: -1px 0.5vw;
-    padding: 0.5vw;
+    padding: .5vw;
     border-radius: 0.5vw;
-    height: 9em;
+    height: 10em;
 }
 
 .avatar {
@@ -38,7 +37,7 @@
 }
 
 .fullName {
-    font-size: 1em;
+    font-size: 1.3em;
     color: #E89383
 }
 
@@ -66,7 +65,7 @@
     transition: background-color 0.2s ease;
 }
 .unfollowBtn {
-    border-width:2px ;
+    border-width:2px;
     border-style: groove;
     height: 1.5rem;
     transition: border-width 0.2s ease;

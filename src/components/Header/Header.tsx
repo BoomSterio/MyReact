@@ -1,8 +1,8 @@
 import logo from '../../assets/images/icon.png'
 import st from './Header.module.css'
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import React from 'react'
-import {Layout, Avatar, Button, Col, Menu, Row} from 'antd'
+import {Avatar, Button, Col, Layout, Menu, Row} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
 import {getIsAuth, getUserLogin} from '../../redux/auth-selectors'
 import {logout} from '../../redux/auth-reducer'
@@ -34,6 +34,9 @@ const Header: React.FC<Props> = (props) => {
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[]}>
                         <Menu.Item key="1">
                             <Link to="/profile">Profile</Link>
+                        </Menu.Item>
+                        <Menu.Item key="2">
+                            <Link to="/dialogs">Dialogs</Link>
                         </Menu.Item>
                     </Menu>
                 </Col>

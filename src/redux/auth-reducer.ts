@@ -1,16 +1,16 @@
-import {ResultCodesEnum, ResultCodeWithCaptchaEnum} from "../api/api";
-import {stopSubmit} from "redux-form";
-import {ThunkAction} from "redux-thunk";
-import {AppStateType, BaseThunkType, InferActionsTypes} from "./redux-store";
-import {authAPI} from "../api/auth-api";
-import {securityAPI} from "../api/security-api";
+import {ResultCodesEnum, ResultCodeWithCaptchaEnum} from '../api/api'
+import {BaseThunkType, InferActionsTypes} from './redux-store'
+import {authAPI} from '../api/auth-api'
+import {securityAPI} from '../api/security-api'
+import {stopSubmit} from 'redux-form'
 
 let initialState = {
     userId: null as number | null,
     email: null as string | null,
     login: null as string | null,
     isAuth: false,
-    captchaUrl: null as string | null
+    captchaUrl: null as string | null,
+    error: null as string | null
 }
 export type InitialStateType = typeof initialState
 
@@ -30,6 +30,12 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
                 captchaUrl: action.captchaUrl
             }
         }
+        case 'auth/SET_ERROR': {
+            return {
+                ...state,
+                error: action.message
+            }
+        }
 
         default:
             return state;
@@ -41,7 +47,8 @@ export const actions = {
         type: 'auth/SET_USER_DATA',
         payload: {userId, email, login, isAuth}
     }as const),
-    getCaptchaUrlSuccess: (captchaUrl: string) => ({type: 'auth/GET_CAPTCHA_URL_SUCCESS', captchaUrl}as const)
+    getCaptchaUrlSuccess: (captchaUrl: string) => ({type: 'auth/GET_CAPTCHA_URL_SUCCESS', captchaUrl}as const),
+    setError: (message: string) => ({type: 'auth/SET_ERROR', message} as const)
 }
 
 //thunk creators
@@ -69,8 +76,9 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
             dispatch(getCaptchaUrl());
         }
         let message = data.messages.length >= 0 ? data.messages[0] : "Unknown error"
-        let action = stopSubmit("login", {_error: message});
-        dispatch(action);
+        /*let action = stopSubmit("login", {_error: message});
+        dispatch(action);*/
+        dispatch(actions.setError(message))
     }
 }
 

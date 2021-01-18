@@ -2,11 +2,11 @@ import React from 'react';
 import st from './Messages.module.css';
 import Message from "./MessageItem/Message";
 import MessageForm from "./MessageForm/MessageForm";
-import {MessageType} from "../../../redux/dialogs-reducer";
+import {actions, MessageType} from '../../../redux/dialogs-reducer'
+import {useDispatch} from 'react-redux'
 
 type Props = {
     messages: Array<MessageType>
-    sendMessage: (messageBody: string) => void
 }
 
 export type MessageFormValuesType = {
@@ -14,11 +14,13 @@ export type MessageFormValuesType = {
 }
 
 const Messages: React.FC<Props> = (props) => {
+    const dispatch = useDispatch()
+
     let messagesElements = props.messages.map(m => <Message message={m.text} type={m.type} key={m.id}
                                                                   id={m.id}/>);
 
     function onSendMessage(values: MessageFormValuesType) {
-        props.sendMessage(values.messageBody);
+        dispatch(actions.sendMessage(values.messageBody))
     }
 
     return (

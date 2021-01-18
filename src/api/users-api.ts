@@ -9,6 +9,9 @@ export const usersAPI = {
                 return responce.data;
             });
     },
+    getFollow(userId: number) {
+        return instance.get<boolean>(`follow/${userId}`).then(res => res.data)
+    },
     postFollow(userId: number) {
         return instance.post<ApiResponseType>(`follow/${userId}`).then(res => res.data)
     },

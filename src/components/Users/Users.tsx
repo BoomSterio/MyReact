@@ -77,14 +77,14 @@ const Users: FC<Props> = (props) => {
         dispatch(follow(userId))
     }
 
-    const OnUnfollow = (userId: number) => {
+    const onUnfollow = (userId: number) => {
         dispatch(unfollow(userId))
     }
 
     const usersElements = users.map(u => <UserItem
         user={u} key={u.id}
         followingInProgress={followingInProgress}
-        follow={onFollow} unfollow={OnUnfollow}/>)
+        follow={onFollow} unfollow={onUnfollow}/>)
 
     return (
         <div className={st.usersPage}>
@@ -92,7 +92,7 @@ const Users: FC<Props> = (props) => {
             <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize}
                        currentPage={currentPage}
                        onPageSelector={onPageSelector}/>
-            <div className={st.usersItems}>
+            <div>
                 {isFetching ? <Preloader/> : null}
                 {usersElements}
             </div>

@@ -11,11 +11,13 @@ type Props = {
 const Login: React.FC<Props> = (props) => {
     const captchaUrl = useSelector((state: AppStateType) => state.auth.captchaUrl)
     const isAuth = useSelector((state: AppStateType) => state.auth.isAuth)
+    let apiError
 
     const dispatch = useDispatch()
 
     const onSubmit = (formData: LoginFormValuesType) => {
         dispatch(login(formData.email, formData.password, formData.rememberMe, formData.captcha))
+
     }
 
     if (isAuth) {
@@ -26,7 +28,7 @@ const Login: React.FC<Props> = (props) => {
         <div>
             <h2>Login</h2>
             <div>
-                <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
             </div>
         </div>
     )

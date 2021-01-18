@@ -1,36 +1,54 @@
-import st from './FriendsBanner.module.css';
-import {NavLink} from 'react-router-dom';
+import st from './FriendsBanner.module.css'
+import {NavLink} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import {getTotalUsersCount, getUsers} from '../../../../redux/users-selectors'
+import React, {useEffect} from 'react'
+import {requestUsers} from '../../../../redux/users-reducer'
+import {Button, Col, Row} from 'antd'
+import user from '../../../../assets/images/user.jpg'
 
-type Props = {
-
-}
+type Props = {}
 
 //todo: implement using server API
 const FriendsBanner: React.FC<Props> = (props) => {
-    let friendsCount = 192;
+    const totalFriendsCount = useSelector(getTotalUsersCount)
+    const users = useSelector(getUsers)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(requestUsers(1, 6, {term: '', friend: true}))
+    }, [])
+
+    const usersElementsRow1 = users.slice(-3).map((u) => (
+        <Col span={8} className={st.icon} key={u.id}>
+            <NavLink to={'/profile/' + u.id}><img src={u.photos.small ? u.photos.small : user} alt={''}/></NavLink>
+        </Col>
+    ))
+    const usersElementsRow2 = users.slice(0, 3).map((u) => (
+        <Col span={8} className={st.icon} key={u.id}>
+            <NavLink to={'/profile/' + u.id}><img src={u.photos.small ? u.photos.small : user} alt={''}/></NavLink>
+        </Col>
+    ))
+
     return (
         <div>
             <div className={st.friendsShortcut}>
-                <NavLink to="/friends">Friends ({friendsCount})</NavLink>
+                <Button>
+                    <NavLink to="/users">Friends ({totalFriendsCount})</NavLink>
+                </Button>
             </div>
             <hr/>
-            <div className={st.icons}>
-                <div className={st.icon}>
-                    <NavLink to="/profile"><img src="https://i.redd.it/zwynel51x3e11.jpg" alt={''}/></NavLink>
-                </div>
-                <div className={st.icon}>
-                    <NavLink to="/profile"><img
-                        src="https://i.pinimg.com/originals/d7/b6/8e/d7b68ed24b41e4b9a6ceecd1f96b51e7.jpg"
-                        alt={''}/></NavLink>
-                </div>
-                <div className={st.icon}>
-                    <NavLink to="/profile"><img
-                        src="https://lostandfoundtobe.com/wp-content/uploads/2020/01/cat-face-time.gif"
-                        alt={''}/></NavLink>
-                </div>
+            <div className={st.friendsIcons}>
+            <Row gutter={[8, 8]}>
+                {usersElementsRow1}
+            </Row>
+            <Row gutter={[8, 8]}>
+                {usersElementsRow2}
+            </Row>
             </div>
         </div>
-    );
+    )
 }
 
-export default FriendsBanner;
+export default FriendsBanner

@@ -35,6 +35,12 @@
 }
 
 .postText {
+    word-break: break-word;
+    word-wrap: break-word;
     vertical-align: middle;
+}
+
+.deleteButton{
+    text-align: right;
 }
 

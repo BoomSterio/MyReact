@@ -1,6 +1,6 @@
 .grid {
     display:grid;
-    grid-template-columns: 68fr 32fr;
+    grid-template-columns: 72fr 28fr;
 
 }
 

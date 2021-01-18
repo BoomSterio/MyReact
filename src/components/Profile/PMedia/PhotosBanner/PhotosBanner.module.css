@@ -1,0 +1,22 @@
+.photosShortcut {
+    text-align: center;
+}
+.photosShortcut a {
+    color:white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+}
+.photosShortcut button {
+    border: none
+}
+
+.photosIcons {
+    text-align: center;
+}
+
+.item img {
+    width: 5.75vw;
+    height: 5.75vw;
+    object-fit: cover;
+}

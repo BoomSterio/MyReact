@@ -9,17 +9,17 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import Groups from './components/Groups/Groups'
 import Feed from './components/Feed/Feed'
-import Dialogs from './components/Dialogs/DialogsContainer'
+import Dialogs from './components/Dialogs/Dialogs'
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
 import {initializeApp} from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader'
 import store, {AppStateType} from './redux/redux-store'
 import {withSuspence} from './hoc/withSuspence'
-import {Breadcrumb, Layout, Menu} from 'antd'
+import {Breadcrumb, Layout} from 'antd'
+import Chats from './pages/Chats/Chats'
 
-const {SubMenu} = Menu
-const { Content, Footer, Sider} = Layout
+const {Content, Footer} = Layout
 
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 const UsersPage = React.lazy(() => import('./components/Users/Users'))
@@ -31,7 +31,6 @@ type DispatchProps = {
     initializeApp: () => void
 }
 
-//todo: redisign with Ant Design
 class App extends React.Component<StateProps & DispatchProps> {
     catchUnhandledErrors = (promiseRejectionEvent: PromiseRejectionEvent) => {
         console.error(promiseRejectionEvent)
@@ -53,22 +52,22 @@ class App extends React.Component<StateProps & DispatchProps> {
 
         return (
             <Layout>
-                <Header />
+                <Header/>
                 <Content style={{padding: '0 50px'}}>
                     <Breadcrumb style={{margin: '16px 0'}}>
+                        {/*todo: implement breadcrumbs*/}
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
                     <Layout className="site-layout-background" style={{padding: '24px 0'}}>
-                        <Sider className="site-layout-background" width={200}>
-                            <Navbar/>
-                        </Sider>
+                        <Navbar/>
                         <Content style={{padding: '0 24px', minHeight: 280}}>
                             <Switch>
                                 <Redirect exact from="/" to="/profile"/>
                                 <Route path="/profile/:userId?" render={() => <SuspendedProfilePage/>}/>
                                 <Route path="/dialogs" render={() => <Dialogs/>}/>
+                                <Route path="/chats" render={() => <Chats/>}/>
                                 <Route path="/feed" render={() => <Feed/>}/>
                                 <Route path="/users" render={() => <SuspendedUsersPage/>}/>
                                 <Route path="/groups" render={() => <Groups/>}/>
@@ -82,13 +81,6 @@ class App extends React.Component<StateProps & DispatchProps> {
                 </Content>
                 <Footer style={{textAlign: 'center'}}>Anti-hOOman Zone ©2021 All rights reserved</Footer>
             </Layout>
-            /*<div className="app-wrapper">
-                <HeaderContainer/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-
-                </div>
-            </div>*/
         )
     }
 }

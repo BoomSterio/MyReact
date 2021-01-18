@@ -3,14 +3,19 @@
     line-height: 4em;
     padding: 0vw 4.5vw;
     background-color: #1F3041;
-
+    border-radius: 0 0 5px 5px;
+    color: white
 }
 .filters button {
-    height: 2em;
+    height: 2vw;
     margin: 0.5em;
 }
 
-
+.usersSearch {
+    color: black;
+    height: 2vw;
+    border-radius: 4px;
+}
 
 .usersSwitch {
     margin-right: 0.3em;

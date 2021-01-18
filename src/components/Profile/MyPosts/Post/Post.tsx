@@ -1,5 +1,9 @@
-import st from "./Post.module.css";
-import React from "react";
+import st from './Post.module.css'
+import React from 'react'
+import {Button, Col, Row} from 'antd'
+import {DeleteOutlined} from '@ant-design/icons'
+import {useDispatch} from 'react-redux'
+import {actions} from '../../../../redux/profile-reducer'
 
 type Props = {
     name: string
@@ -7,30 +11,71 @@ type Props = {
     likes: number
     img: string
     id: number
+    isOwner: boolean
 }
 
 const Post: React.FC<Props> = (props) => {
+    const dispatch = useDispatch()
+
+    const onDeletePost = () => {
+        dispatch(actions.deletePost(props.id))
+    }
+
     return (
         <div className={st.item}>
-            <div className={st.img}>
-                <img
-                    src={props.img}
-                    alt="cpfp"
-                />
-            </div>
-            <div className={st.content}>
-                <div className={st.name}>
-                    {props.name}
+            <Row gutter={[16, 8]}>
+                <Col span={2}>
+                    <div className={st.img}>
+                        <img
+                            src={props.img}
+                            alt="cpfp"
+                        />
+                    </div>
+                </Col>
+                <Col span={19}>
+                    <div className={st.content}>
+                        <div className={st.name}>
+                            {props.name}
+                        </div>
+                        <div className={st.postText}>
+                            {props.message}
+                        </div>
+                    </div>
+                </Col>
+                <Col span={1} offset={2}>
+                    {props.isOwner &&
+                    <div className={st.deleteButton}>
+                        <Button danger onClick={onDeletePost} type={'link'} icon={<DeleteOutlined/>}/>
+                    </div>}
+                </Col>
+            </Row>
+            <Row>
+                <Col span={2}>
+                    <div>
+                        <span>like ({props.likes}) </span>
+                    </div>
+                </Col>
+                <Col span={22}></Col>
+            </Row>
+            {/*<div className={st.img}>
+                    <img
+                        src={props.img}
+                        alt="cpfp"
+                    />
                 </div>
-                <div className={st.postText}>
-                    {props.message}
+                <div className={st.content}>
+                    <div className={st.name}>
+                        {props.name}
+                    </div>
+                    <div className={st.postText}>
+                        {props.message}
+                    </div>
                 </div>
-            </div>
-            <div>
-                <span>like ({props.likes}) </span>
-            </div>
+                <div>
+                    <span>like ({props.likes}) </span>
+                </div>*/}
         </div>
-    );
+    )
 }
 
-export default Post;
+export default Post

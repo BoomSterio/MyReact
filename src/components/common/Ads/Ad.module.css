@@ -1,0 +1,11 @@
+.ad {
+    text-align: center;
+    overflow: auto;
+}
+
+.ad img{
+    height: 85%;
+    width: 85%;
+    object-fit: cover;
+    object-position: center;
+}

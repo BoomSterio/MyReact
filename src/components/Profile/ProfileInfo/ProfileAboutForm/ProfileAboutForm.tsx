@@ -39,7 +39,8 @@ const ProfileAboutForm: React.FC<InjectedFormProps<ProfileType, Props> & Props> 
 
             <div className={st.col2}>
                 <div>
-                    Looking for a job: <Field name={"lookingForAJob"} component={Input} type={"checkbox"}
+                    <span>Looking for a job: </span>
+                    <Field name={"lookingForAJob"} component={Input} type={"checkbox"}
                                               placeholder={"Alex Silverhand"}/>
                     <span>y/n</span>
                 </div>

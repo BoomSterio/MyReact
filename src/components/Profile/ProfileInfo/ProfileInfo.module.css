@@ -8,6 +8,7 @@
     align-content: center;
     text-align: center;
     top: -5.7vw;
+    transition: 0s
 }
 
 .pfp img {
@@ -16,6 +17,11 @@
     object-fit: cover;
     object-position: center;
     border-radius: 4vw;
+}
+
+Image img:hover {
+    transition: 0.3s all ease-in-out;
+    border-radius: 100px;
 }
 
 .myPfp {

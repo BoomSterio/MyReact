@@ -1,17 +1,16 @@
 import st from './Dialogs.module.css'
-import DialogItem from "./DialogItem/DialogItem";
-import Messages from "./Messages/Messages";
-import {InitialStateType} from "../../redux/dialogs-reducer";
-import React from "react";
+import DialogItem from './DialogItem/DialogItem'
+import Messages from './Messages/Messages'
+import React from 'react'
+import {AppStateType} from '../../redux/redux-store'
+import {useSelector} from 'react-redux'
 
 type Props = {
-    dialogsPage: InitialStateType
-    sendMessage: (messageBody: string) => void
 }
 
 const Dialogs: React.FC<Props> = (props) => {
-    const state = props.dialogsPage;
-debugger
+    const state = useSelector((state: AppStateType) => state.dialogsPage)
+
     const dialogsElements = state.dialogs.map((d) => <DialogItem name={d.name} img={d.img} key={d.id} id={d.id}/>);
 
     return (
@@ -20,8 +19,7 @@ debugger
                 {dialogsElements}
             </div>
             <div className={st.messages}>
-                <Messages messages={props.dialogsPage.messages}
-                          sendMessage={props.sendMessage}/>
+                <Messages messages={state.messages}/>
             </div>
         </div>
     );

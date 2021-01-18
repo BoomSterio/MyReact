@@ -2,6 +2,7 @@ import {FormAction, stopSubmit} from "redux-form";
 import {PhotosType, PostType, ProfileType} from "../types/types";
 import {BaseThunkType, InferActionsTypes} from "./redux-store";
 import {profileAPI} from "../api/profile-api";
+import {usersAPI} from '../api/users-api'
 
 let initialState = {
     posts: [
@@ -43,6 +44,8 @@ let initialState = {
     ] as Array<PostType>,
     profile: null as ProfileType | null,
     status: "",
+    followStatus: false,
+    isFollowingInProgress: false,
     newPostText: ""
 };
 export type InitialStateType = typeof initialState;
@@ -79,6 +82,16 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
                 ...state, status: action.status
             }
         }
+        case "profilePage/SET_FOLLOW_STATUS": {
+            return {
+                ...state, followStatus: action.followStatus
+            }
+        }
+        case "profilePage/SET_IS_FOLLOWING_IN_PROGRESS": {
+            return {
+                ...state, isFollowingInProgress: action.isFollowingInProgress
+            }
+        }
         case "profilePage/DELETE_POST": {
             return {
                 ...state, posts: state.posts.filter(p => p.id !== action.postId)
@@ -101,7 +114,9 @@ export const actions = {
     deletePost: (postId: number) => ({type: "profilePage/DELETE_POST", postId} as const),
     setUserProfile: (profile: ProfileType) => ({type: "profilePage/SET_USER_PROFILE", profile} as const),
     setStatus: (status: string) => ({type: "profilePage/SET_STATUS", status} as const),
-    savePhotoSuccess: (photos: PhotosType) => ({type: "profilePage/SAVE_PHOTO_SUCCESS", photos} as const)
+    setFollowStatus: (followStatus: boolean) => ({type: "profilePage/SET_FOLLOW_STATUS", followStatus} as const),
+    setIsFollowingInProgress: (isFollowingInProgress: boolean) => ({type: "profilePage/SET_IS_FOLLOWING_IN_PROGRESS", isFollowingInProgress} as const),
+    savePhotoSuccess: (photos: PhotosType) => ({type: "profilePage/SAVE_PHOTO_SUCCESS", photos} as const),
 }
 
 //thunk creators
@@ -117,6 +132,33 @@ export const getStatus = (userId: number): ThunkType => async (dispatch) => {
     dispatch(actions.setStatus(data));
 }
 
+export const getFollowStatus = (userId: number): ThunkType => async (dispatch) => {
+    let data = await usersAPI.getFollow(userId);
+    dispatch(actions.setFollowStatus(data));
+}
+
+export const follow = (userId: number): ThunkType => async (dispatch) => {
+    dispatch(actions.setIsFollowingInProgress(true))
+    let data = await usersAPI.postFollow(userId);
+    if (data.resultCode === 0) {
+        dispatch(actions.setFollowStatus(true));
+    } else {
+        return Promise.reject(data.messages[0]);
+    }
+    dispatch(actions.setIsFollowingInProgress(false))
+}
+
+export const unfollow = (userId: number): ThunkType => async (dispatch) => {
+    dispatch(actions.setIsFollowingInProgress(true))
+    let data = await usersAPI.deleteFollow(userId);
+    if (data.resultCode === 0) {
+        dispatch(actions.setFollowStatus(false));
+    } else {
+        return Promise.reject(data.messages[0]);
+    }
+    dispatch(actions.setIsFollowingInProgress(false))
+}
+
 export const updateStatus = (status: string): ThunkType => async (dispatch) => {
     let data = await profileAPI.updateStatus(status);
     if (data.resultCode === 0) {
@@ -126,7 +168,7 @@ export const updateStatus = (status: string): ThunkType => async (dispatch) => {
 
 export const savePhoto = (file: File): ThunkType => async (dispatch) => {
     let data = await profileAPI.savePhoto(file);
-    debugger
+
     if (data.resultCode === 0) {
         dispatch(actions.savePhotoSuccess(data.data.photos));
     }

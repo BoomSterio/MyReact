@@ -1,0 +1,35 @@
+.form {
+    width: 12vw
+}
+
+.form input{
+    color: black;
+}
+
+#email,
+#password,
+#captcha {
+    width: 12vw;
+}
+
+.formItem {
+    margin: 0.3vw 0
+}
+
+.formItem label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.formItem img{
+    width: 100%
+}
+
+.error {
+    border: solid red 2px;
+    border-radius: 5px;
+    background-color: darkslategrey;
+    padding: 0.25em;
+    font-size: 0.8em;
+    width: 10vw;
+}

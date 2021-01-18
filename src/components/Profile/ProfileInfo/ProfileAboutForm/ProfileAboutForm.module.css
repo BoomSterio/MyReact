@@ -5,11 +5,14 @@
     position: relative;
     text-align: left;
     top: -4.5vw;
+}
+
+.aboutForm button {
     color: black
 }
 
 .aboutForm div {
-    font-size: 0.9em;
+    font-size: 1em;
     margin-top: 0.05vw;
 }
 
@@ -20,7 +23,12 @@
 .aboutForm TextArea {
     height: 5vw;
     width: 12vw;
-    resize: none
+    resize: none;
+    color: black
+}
+
+.aboutForm input {
+    color: black
 }
 
 .col1 Input {

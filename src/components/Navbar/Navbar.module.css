@@ -13,3 +13,11 @@
 .item a.active {
     color: midnightblue;
 }
+
+.ad {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    border: 3px solid darkslategrey;
+}
