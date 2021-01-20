@@ -1,6 +1,6 @@
 import st from './Post.module.css'
 import React from 'react'
-import {Button, Col, Row} from 'antd'
+import {Button, Col, Popconfirm, Row} from 'antd'
 import {DeleteOutlined} from '@ant-design/icons'
 import {useDispatch} from 'react-redux'
 import {actions} from '../../../../redux/profile-reducer'
@@ -44,9 +44,12 @@ const Post: React.FC<Props> = (props) => {
                 </Col>
                 <Col span={1} offset={2}>
                     {props.isOwner &&
-                    <div className={st.deleteButton}>
-                        <Button danger onClick={onDeletePost} type={'link'} icon={<DeleteOutlined/>}/>
-                    </div>}
+                    <Popconfirm title={`Delete post by ${props.name}?`} onConfirm={onDeletePost}
+                                okText="Yes" cancelText="No">
+                        <div className={st.deleteButton}>
+                            <Button danger type={'link'} icon={<DeleteOutlined/>}/>
+                        </div>
+                    </Popconfirm>}
                 </Col>
             </Row>
             <Row>

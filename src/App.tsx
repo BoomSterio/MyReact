@@ -31,6 +31,7 @@ type DispatchProps = {
     initializeApp: () => void
 }
 
+//todo: change color scheme
 class App extends React.Component<StateProps & DispatchProps> {
     catchUnhandledErrors = (promiseRejectionEvent: PromiseRejectionEvent) => {
         console.error(promiseRejectionEvent)

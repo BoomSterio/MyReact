@@ -1,9 +1,8 @@
 import UserItem from './UserItem/UserItem'
 import st from './Users.module.css'
 import React, {FC, useEffect} from 'react'
-import Paginator from '../common/Paginator/Paginator'
 import UsersSearchForm from './UsersSearchForm/UsersSearchForm'
-import {FilterType, requestUsers, follow, unfollow} from '../../redux/users-reducer'
+import {FilterType, follow, requestUsers, unfollow} from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
 import {useDispatch, useSelector} from 'react-redux'
 import {
@@ -17,6 +16,7 @@ import {
 } from '../../redux/users-selectors'
 import {useHistory} from 'react-router-dom'
 import * as queryString from 'querystring'
+import {Pagination} from 'antd'
 
 type Props = {}
 
@@ -45,19 +45,22 @@ const Users: FC<Props> = (props) => {
         if (parsed.term)
             actualFilter = {...actualFilter, term: parsed.term as string}
         if (parsed.friend)
-            actualFilter = {...actualFilter, friend: parsed.friend === 'null' ? null : parsed.friend === 'true' ? true : false}
+            actualFilter = {
+                ...actualFilter,
+                friend: parsed.friend === 'null' ? null : parsed.friend === 'true' ? true : false
+            }
 
-            dispatch(requestUsers(actualPage, pageSize, actualFilter))
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
     }, [])
 
     useEffect(() => {
         const query: QueryType = {}
 
-        if(filter.term)
+        if (filter.term)
             query.term = filter.term
-        if(filter.friend !== null)
+        if (filter.friend !== null)
             query.friend = String(filter.friend)
-        if(currentPage !== 1)
+        if (currentPage !== 1)
             query.page = String(currentPage)
 
         history.push({
@@ -89,9 +92,14 @@ const Users: FC<Props> = (props) => {
     return (
         <div className={st.usersPage}>
             <UsersSearchForm filter={filter} onFilterChanged={onFilterChanged}/>
-            <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize}
+            <div style={{textAlign: 'center'}}>
+                <Pagination showQuickJumper showSizeChanger={false} defaultCurrent={1} current={currentPage}
+                            total={totalUsersCount} onChange={onPageSelector} />
+            </div>
+
+            {/*<Paginator totalItemsCount={totalUsersCount} pageSize={pageSize}
                        currentPage={currentPage}
-                       onPageSelector={onPageSelector}/>
+                       onPageSelector={onPageSelector}/>*/}
             <div>
                 {isFetching ? <Preloader/> : null}
                 {usersElements}

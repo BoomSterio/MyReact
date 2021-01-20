@@ -4,6 +4,7 @@ import Message from "./MessageItem/Message";
 import MessageForm from "./MessageForm/MessageForm";
 import {actions, MessageType} from '../../../redux/dialogs-reducer'
 import {useDispatch} from 'react-redux'
+import {reset} from 'redux-form'
 
 type Props = {
     messages: Array<MessageType>
@@ -21,6 +22,7 @@ const Messages: React.FC<Props> = (props) => {
 
     function onSendMessage(values: MessageFormValuesType) {
         dispatch(actions.sendMessage(values.messageBody))
+        dispatch(reset('messageForm'))
     }
 
     return (

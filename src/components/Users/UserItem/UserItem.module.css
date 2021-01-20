@@ -1,5 +1,4 @@
 .user {
-
     background-color: #1F3041;
     border:solid #151E27 1px;
     margin: -1px 0.5vw;
@@ -11,23 +10,6 @@
 .avatar {
     text-align: left;
 }
-.followBtn  {
-    width: 5rem;
-    height: 1.5rem;
-    font-size: 1rem;
-    border-radius: 0.5vw;
-    background-color: #1F3041;
-    color: green;
-}
-
-.unfollowBtn  {
-    width: 5rem;
-    height: 1.5rem;
-    font-size: 1rem;
-    border-radius: 0.5vw;
-    background-color: #1F3041;
-    color: darkred;
-}
 
 .info {
     text-align: left;
@@ -36,7 +18,7 @@
     text-decoration: none;
 }
 
-.fullName {
+.fullName{
     font-size: 1.3em;
     color: #E89383
 }
@@ -55,27 +37,4 @@
     height: 5rem;
     border-radius: 40px;
     object-fit: cover;
-}
-
-.followBtn {
-    border-width:2px ;
-    border-style: groove;
-    height: 1.5rem;
-    transition: border-width 0.2s ease;
-    transition: background-color 0.2s ease;
-}
-.unfollowBtn {
-    border-width:2px;
-    border-style: groove;
-    height: 1.5rem;
-    transition: border-width 0.2s ease;
-    transition: background-color 0.2s ease;
-}
-.followBtn:hover {
-    border-width: 0.2em;
-    background-color: #151E27;
-}
-.unfollowBtn:hover {
-    border-width: 0.2em;
-    background-color: #151E27;
 }

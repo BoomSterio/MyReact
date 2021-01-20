@@ -1,0 +1,11 @@
+.followBtn  {
+    border: 2px solid darkslategrey;
+    border-radius: 0.5vw;
+    color: green;
+}
+
+.unfollowBtn  {
+    border: 2px solid darkslategrey;
+    border-radius: 0.5vw;
+    color: #d20000;
+}

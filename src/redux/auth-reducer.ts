@@ -2,7 +2,6 @@ import {ResultCodesEnum, ResultCodeWithCaptchaEnum} from '../api/api'
 import {BaseThunkType, InferActionsTypes} from './redux-store'
 import {authAPI} from '../api/auth-api'
 import {securityAPI} from '../api/security-api'
-import {stopSubmit} from 'redux-form'
 
 let initialState = {
     userId: null as number | null,
@@ -60,7 +59,7 @@ export const setUserAuth = (): ThunkType => async (dispatch) => {
     if (meData.resultCode === ResultCodesEnum.Success) {
         let {id, email, login} = meData.data;
         dispatch(actions.setAuthUserData(id, email, login, true))
-        /*profileAPI.getProfile(responce.data.data.id).then(responce => {
+        /*profileAPI.getProfile(responce.data.data.id).then(responce => {  //for redux-form
             setUserProfile(responce.data);
         });*/
     }

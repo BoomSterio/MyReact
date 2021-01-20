@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import st from './Ad.module.css'
 
 type Props = {
@@ -9,12 +8,17 @@ type Props = {
 }
 
 export const Ad: React.FC<Props> = ({src, title, link, text = null}) => {
+    const handleAdClick = () => {
+        // @ts-ignore
+        window.location = link as Location;
+    }
+
     return (
-        <div className={st.ad}>
-            <div>
-                <Link to={link}><img src={src} alt={'ad'}/></Link>
+        <div className={st.ad} title={link}>
+            <div className={st.image}>
+                <label onClick={handleAdClick}><img src={src} alt={'ad'}/></label>
             </div>
-            <div>
+            <div className={st.info}>
                 <b>{title}</b>
                 {text &&
                 <div>{text}</div>}

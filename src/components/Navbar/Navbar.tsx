@@ -55,8 +55,8 @@ const Navbar: React.FC = () => {
                     </SubMenu>
                 </Menu>
                 <div className={st.ad}>
-                    <Ad src={'https://assets.stickpng.com/thumbs/5ee772d099588c0004aa684b.png'}
-                        title={'Cat needs your help!'} link={'https://www.cat.com/'} />
+                    <Ad src={'https://i.pinimg.com/474x/5f/6e/87/5f6e873247c8385a76373b85389a1739.jpg'}
+                        title={'Cat needs your help!'} link={'https://www.cat.com/'}/>
                 </div>
             </nav>
             {/*<div className={st.item}>
@@ -88,8 +88,7 @@ const Navbar: React.FC = () => {
         </Layout.Sider>
 
 
-
-)
+    )
 }
 
 export default Navbar

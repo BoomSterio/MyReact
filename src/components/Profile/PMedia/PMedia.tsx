@@ -1,5 +1,5 @@
-import st from "./PMedia.module.css";
-import FriendsBanner from "./FriendsBanner/FriendsBanner";
+import st from './PMedia.module.css'
+import FriendsBanner from './FriendsBanner/FriendsBanner'
 import PhotosBanner from './PhotosBanner/PhotosBanner'
 
 type Props = {
@@ -10,14 +10,14 @@ const PMedia: React.FC<Props> = (props) => {
     return (
         <div>
             <div className={st.media}>
-                <PhotosBanner />
+                <PhotosBanner/>
             </div>
             {props.isOwner &&
             <div className={st.media}>
-                <FriendsBanner />
+                <FriendsBanner/>
             </div>}
         </div>
-    );
+    )
 }
 
-export default PMedia;
+export default PMedia

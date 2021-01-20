@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {Avatar, Button, Col, Row} from 'antd'
 import TextArea from 'antd/es/input/TextArea'
+import {TargetElement} from '@testing-library/user-event'
 
 export type ChatMessageType = {
     message: string
@@ -17,7 +18,7 @@ const Chats: React.FC = () => {
                 <li>Chat1</li>
                 <li>Chat2</li>
             </ul>
-            <Chat />
+            <Chat/>
         </div>
     )
 }
@@ -54,7 +55,7 @@ const Chat: React.FC = () => {
     )
 }
 
-const ChatMessages: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) => {
+const ChatMessages: React.FC<{ wsChannel: WebSocket | null }> = ({wsChannel}) => {
     const [messages, setMessages] = useState<Array<ChatMessageType>>([])
 
     useEffect(() => {
@@ -63,7 +64,7 @@ const ChatMessages: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) => {
             setMessages((prevState) => [...prevState, ...newMessages])
         }
         wsChannel?.addEventListener('message', messageHandler)
-        
+
         return () => {
             wsChannel?.removeEventListener('message', messageHandler)
         }
@@ -86,7 +87,7 @@ const Message: React.FC<{ message: ChatMessageType }> = ({message}) => {
     )
 }
 
-const ChatMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) => {
+const ChatMessageForm: React.FC<{ wsChannel: WebSocket | null }> = ({wsChannel}) => {
     const [message, setMessage] = useState<string>('')
     const [isWSReady, setIsWSReady] = useState<'pending' | 'ready'>('pending')
 
@@ -103,10 +104,11 @@ const ChatMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) =
     }, [wsChannel])
 
     const sendMessage = () => {
-        if(!message)
+        if (!message)
             return
 
         wsChannel?.send(message)
+
         setMessage('')
     }
 
@@ -114,7 +116,9 @@ const ChatMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) =
         <div>
             <Row>
                 <Col span={20}>
-                    <TextArea onChange={(e) => {setMessage(e.target.value)}}/>
+                    <TextArea value={message} onChange={(e) => {
+                        setMessage(e.target.value)
+                    }}/>
                 </Col>
                 <Col span={4}>
                     <Button loading={wsChannel === null || isWSReady !== 'ready'} onClick={sendMessage}>Send</Button>

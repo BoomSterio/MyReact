@@ -5,6 +5,7 @@ import PostForm, {AddPostTextType} from './PostForm/PostForm'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../../redux/redux-store'
 import {actions} from '../../../redux/profile-reducer'
+import {reset} from 'redux-form'
 
 type Props = {
     isOwner: boolean
@@ -21,6 +22,7 @@ const MyPosts: React.FC<Props> = (props) => {
 
     const onAddPost = (formData: AddPostTextType) => {
         dispatch(actions.addPost(formData.text))
+        dispatch(reset('postArea'))
     }
 
     return (

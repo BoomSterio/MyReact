@@ -19,19 +19,19 @@ const loginFormValidate = (values: any) => {
         captcha: ''*/
     }
 
-    if(values.email.length > maxEmailLength) {
+    if (values.email.length > maxEmailLength) {
         errors.email = 'Max length is ' + maxEmailLength
     }
 
-    if(values.email.length < minEmailLenth) {
+    if (values.email.length < minEmailLenth) {
         errors.email = 'Min length is ' + minEmailLenth
     }
 
-    if(values.password.length > maxPassLength) {
+    if (values.password.length > maxPassLength) {
         errors.password = 'Max length is ' + maxPassLength
     }
 
-    if(values.password.length < minPassLength) {
+    if (values.password.length < minPassLength) {
         errors.password = 'Min length is ' + minPassLength
     }
 
@@ -73,7 +73,7 @@ const LoginForm: React.FC<OwnPropsType> = (props) => {
             captcha: String('')
         }}
                 validate={loginFormValidate} onSubmit={submit}>
-                {({isSubmitting}) => (
+            {({isSubmitting}) => (
                 <Form className={st.form}>
                     <div className={st.formItem}>
                         <div>Email or login</div>
@@ -87,7 +87,7 @@ const LoginForm: React.FC<OwnPropsType> = (props) => {
                         <span onClick={onTogglePassVisibility}>
                             {isPassVisible ?
                                 <EyeOutlined/>
-                            :   <EyeInvisibleOutlined />}
+                                : <EyeInvisibleOutlined/>}
                         </span>
                         <ErrorMessage className={st.error} name={'password'} component={'div'}/>
 

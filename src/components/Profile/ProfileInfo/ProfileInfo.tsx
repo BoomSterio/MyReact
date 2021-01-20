@@ -12,6 +12,7 @@ import {Button} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
 import {follow, unfollow} from '../../../redux/profile-reducer'
 import {AppStateType} from '../../../redux/redux-store'
+import FollowingButton from '../../common/FollowingButton/FollowingButton'
 
 type Props = {
     profile: ProfileType
@@ -82,7 +83,7 @@ const ProfileInfo: React.FC<Props> = (props) => {
                         </div>
                     </div>
                     :
-                    <div style={{padding:'0.1vw'}}>
+                    <div style={{padding: '0.1vw'}}>
                         <img src={(props.profile.photos.large == null) ? userPfp : props.profile.photos.large}
                              alt="pfp"/>
                     </div>}
@@ -97,7 +98,9 @@ const ProfileInfo: React.FC<Props> = (props) => {
                                                 updateStatus={props.updateStatus}/>
                         {!props.isOwner &&
                         <div>
-                            <Button style={props.followed
+                            <FollowingButton followed={props.followed} isFollowingInProgress={isFollowingInProgress}
+                                             id={props.profile.userId} handleFollow={followUser} handleUnfollow={unfollowUser}/>
+                            {/*<Button style={props.followed
                                 ? {borderWidth: '2px', borderStyle: 'groove', color: 'darkred', borderRadius: '0.5vw'}
                                 : {borderWidth: '2px', borderStyle: 'groove', color: 'green', borderRadius: '0.5vw'}}
                                     loading={isFollowingInProgress}
@@ -106,7 +109,7 @@ const ProfileInfo: React.FC<Props> = (props) => {
                                     } : () => {
                                         followUser(props.profile.userId)
                                     }}>
-                                {props.followed ? 'Unfollow' : 'Follow'}</Button>
+                                {props.followed ? 'Unfollow' : 'Follow'}</Button>*/}
                         </div>}
                     </div>
                     <ProfileAbout profile={props.profile} isOwner={props.isOwner} goToEditMode={() => {

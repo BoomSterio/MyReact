@@ -35,17 +35,17 @@ const FriendsBanner: React.FC<Props> = (props) => {
         <div>
             <div className={st.friendsShortcut}>
                 <Button>
-                    <NavLink to="/users">Friends ({totalFriendsCount})</NavLink>
+                    <NavLink to={'/users'}>Friends ({totalFriendsCount})</NavLink>
                 </Button>
             </div>
             <hr/>
             <div className={st.friendsIcons}>
-            <Row gutter={[8, 8]}>
-                {usersElementsRow1}
-            </Row>
-            <Row gutter={[8, 8]}>
-                {usersElementsRow2}
-            </Row>
+                <Row gutter={[8, 8]}>
+                    {usersElementsRow1}
+                </Row>
+                <Row gutter={[8, 8]}>
+                    {usersElementsRow2}
+                </Row>
             </div>
         </div>
     )
