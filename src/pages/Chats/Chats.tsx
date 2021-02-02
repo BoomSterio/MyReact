@@ -6,6 +6,7 @@ import {ChatMessageType} from '../../types/types'
 import {useDispatch, useSelector} from 'react-redux'
 import {sendMessage, startMessagesListening, stopMessagesListening} from '../../redux/chat-reducer'
 import {AppStateType} from '../../redux/redux-store'
+import userPfp from '../../assets/images/user.jpg'
 
 const Chats: React.FC = () => {
     return (
@@ -50,7 +51,7 @@ const Messages: React.FC = () => {
 const Message: React.FC<{ message: ChatMessageType }> = ({message}) => {
     return (
         <div>
-            <Link to={`/profile/${message.userId}`}><Avatar src={message.photo} alt={'ava'}/></Link>
+            <Link to={`/profile/${message.userId}`}><Avatar src={message.photo ? message.photo : userPfp    } alt={'ava'}/></Link>
             <b>{message.userName}</b>
             <div>{message.message}</div>
         </div>

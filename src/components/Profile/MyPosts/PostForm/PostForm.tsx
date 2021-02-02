@@ -3,6 +3,7 @@ import st from '../MyPosts.module.css'
 import {Field, InjectedFormProps, reduxForm} from 'redux-form'
 import {Textarea} from '../../../common/Forms/FormsControls'
 import React from 'react'
+import {Button} from 'antd'
 
 const maxLength = maxLengthCreator(150)
 
@@ -17,7 +18,7 @@ const PostForm: React.FC<InjectedFormProps<AddPostTextType> & Props> = (props) =
     return (
         <form className={st.postCreator} onSubmit={props.handleSubmit}>
             <Field autoFocus={true} name={'text'} component={Textarea} validate={[maxLength]}/>
-            <button>ADD POST</button>
+            <Button htmlType={'submit'}>ADD POST</Button>
         </form>
     )
 }

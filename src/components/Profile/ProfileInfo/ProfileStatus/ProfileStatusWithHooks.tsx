@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react'
 import st from './ProfileStatus.module.css'
+import {Input} from 'antd'
 
 type Props = {
     status: string
@@ -36,7 +37,7 @@ const ProfileStatusWithHooks: React.FC<Props> = (props) => {
             {
                 editMode ?
                     <div>
-                        <input className={st.statusInput} onChange={onStatusChange} onBlur={deactivateEditMode}
+                        <Input className={st.statusInput} onChange={onStatusChange} onBlur={deactivateEditMode}
                                autoFocus={true} value={status}/>
                     </div>
                     :

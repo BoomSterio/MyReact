@@ -13,30 +13,21 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: black
+    color: black;
+    width: 70%
 }
 .postCreator textarea {
     display: block;
-    width: 95%;
-    height: 2.7vw;
-    border-radius: 1vw;
+    width: 98%;
+    height: 3vw;
+    border-radius: 0.55vw;
     resize: none;
     padding: 5px;
 }
 .postCreator div {
     width: 100%;
 }
-.postCreator button {
-    font-weight: 600;
-    background-color: #1F3041;
-    color:white;
-    border: none;
-    border-radius: 0.5vw;
-    height: 2.5vw;
-    width: 15%;
-    text-align: center;
-    margin: 0.2vw;
-}
+
 
 .posts {
     padding: 0.5vw 0vw;

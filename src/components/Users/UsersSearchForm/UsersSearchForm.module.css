@@ -2,8 +2,8 @@
     height: 4em;
     line-height: 4em;
     padding: 0vw 4.5vw;
-    background-color: #1F3041;
-    border-radius: 0 0 5px 5px;
+    background-color: #141414;
+    border-radius: 5px;
     color: white
 }
 .filters button {
