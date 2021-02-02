@@ -1,0 +1,42 @@
+.inputFileLabel img:hover {
+    filter: hue-rotate(-20deg) blur(2px) brightness(57%);
+}
+
+.photoLoader {
+    text-align: center;
+    position: relative;
+    top: -1.45vw;
+    left: 24.6vw;
+    margin: 0.09vw;
+    width: 1.5vw;
+    height: 1vw;
+}
+
+.inputFile {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputFileButton img {
+    width:1vw;
+    height:1vw;
+    border-radius: 0.25vw;
+    object-fit: cover;
+    object-position: center;
+    background-color: cornflowerblue;
+}
+
+.inputFile + .inputFileButton {
+    cursor: pointer;
+}
+.inputFileButton img:hover {
+    background-color: forestgreen;
+}
+
+.inputFile + .inputFileLabel {
+    cursor: pointer;
+}

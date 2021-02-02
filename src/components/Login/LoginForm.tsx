@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import st from './Login.module.css'
-import {ErrorMessage, Field, Form, Formik} from 'formik'
+import {ErrorMessage, Form, Formik} from 'formik'
+import Field from 'formik-antd/es/input'
+import 'formik-antd/es/field/style'
 import {Button} from 'antd'
 import {EyeInvisibleOutlined, EyeOutlined} from '@ant-design/icons'
 import {useSelector} from 'react-redux'
@@ -83,7 +85,7 @@ const LoginForm: React.FC<OwnPropsType> = (props) => {
                     <div className={st.formItem}>
                         <div>Password</div>
                         <Field name={'password'} id={'password'} type={isPassVisible ? 'text' : 'password'}
-                               placeholder={'password'}/>
+                               placeholder={'password'} style={{width: '11vw', marginRight: '10px'}}/>
                         <span onClick={onTogglePassVisibility}>
                             {isPassVisible ?
                                 <EyeOutlined/>
@@ -94,7 +96,7 @@ const LoginForm: React.FC<OwnPropsType> = (props) => {
                     </div>
                     <div className={st.formItem}>
                         <label htmlFor={'rememberMe'}>Remember me</label>
-                        <Field name={'rememberMe'} type={'checkbox'} style={{marginLeft: '5px'}}/>
+                        <Field name={'rememberMe'} type={'checkbox'} style={{marginLeft: '10px', width: '13px'}}/>
                         <ErrorMessage className={st.error} name={'rememberMe'} component={'div'}/>
                     </div>
                     {props.captchaUrl &&

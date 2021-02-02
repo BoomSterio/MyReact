@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent} from 'react'
 
 type Props = {
     status: string
@@ -19,28 +19,28 @@ class ProfileStatus extends React.Component<Props, State> {
     activateEditMode = () => {
         this.setState(
             {editMode: true}
-        );
+        )
     }
 
     deactivateEditMode = () => {
         this.setState(
             {editMode: false}
-        );
-        this.props.updateStatus(this.state.status);
+        )
+        this.props.updateStatus(this.state.status)
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-       if (prevProps.status !== this.props.status) {
-           this.setState(
-               {status: this.props.status}
-           );
-       }
+        if (prevProps.status !== this.props.status) {
+            this.setState(
+                {status: this.props.status}
+            )
+        }
     }
 
     onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
         this.setState(
             {status: e.target.value}
-        );
+        )
     }
 
     render() {
@@ -54,7 +54,8 @@ class ProfileStatus extends React.Component<Props, State> {
                         </div>
                         :
                         <div>
-                            <span onDoubleClick={this.activateEditMode}>{this.props.status || "Member of meow community!"}</span>
+                            <span
+                                onDoubleClick={this.activateEditMode}>{this.props.status || 'Member of meow community!'}</span>
                         </div>
                 }
                 <div>{this.props.aboutMe}</div>
@@ -63,4 +64,4 @@ class ProfileStatus extends React.Component<Props, State> {
     }
 }
 
-export default ProfileStatus;
+export default ProfileStatus

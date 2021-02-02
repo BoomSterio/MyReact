@@ -1,4 +1,9 @@
 .usersPage {
-    padding: 1vw 8vw;
+    padding: 0 3%;
+}
+
+.paginator {
+    text-align: center;
+    margin: 10px 0px
 }
 

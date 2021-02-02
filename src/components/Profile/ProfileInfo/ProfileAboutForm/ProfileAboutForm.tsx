@@ -1,14 +1,14 @@
-import st from "./ProfileAboutForm.module.css"
-import {Input, Textarea} from "../../../common/Forms/FormsControls";
-import {maxLengthCreator, minLengthCreator, required} from "../../../../utils/validators/validators";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import React from "react";
-import {ProfileType} from "../../../../types/types";
+import st from './ProfileAboutForm.module.css'
+import {Input, Textarea} from '../../../common/Forms/FormsControls'
+import {maxLengthCreator, minLengthCreator, required} from '../../../../utils/validators/validators'
+import {Field, InjectedFormProps, reduxForm} from 'redux-form'
+import React from 'react'
+import {ProfileType} from '../../../../types/types'
 
-const maxNameLength = maxLengthCreator(30);
-const minNameLength = minLengthCreator(3);
-const maxAboutMeLength = maxLengthCreator(1000);
-const maxSkillsLength = maxLengthCreator(100);
+const maxNameLength = maxLengthCreator(30)
+const minNameLength = minLengthCreator(3)
+const maxAboutMeLength = maxLengthCreator(1000)
+const maxSkillsLength = maxLengthCreator(100)
 
 type Props = {
     profile: ProfileType
@@ -19,14 +19,14 @@ const ProfileAboutForm: React.FC<InjectedFormProps<ProfileType, Props> & Props> 
         <form className={st.aboutForm} onSubmit={props.handleSubmit}>
             <div className={st.col1}>
                 <div>
-                    Full name: <Field name={"fullName"} component={Input}
+                    Full name: <Field name={'fullName'} component={Input}
                                       validate={[required, maxNameLength, minNameLength]}
-                                      placeholder={"Alex Silverhand"}/>
+                                      placeholder={'Alex Silverhand'}/>
                 </div>
                 <div>
-                    About me: <Field name={"aboutMe"} component={Textarea}
+                    About me: <Field name={'aboutMe'} component={Textarea}
                                      validate={[maxAboutMeLength]}
-                                     placeholder={"Write something about yourself"}/>
+                                     placeholder={'Write something about yourself'}/>
                 </div>
                 {props.error &&
                 <div className={st.formSummaryError}>
@@ -40,13 +40,13 @@ const ProfileAboutForm: React.FC<InjectedFormProps<ProfileType, Props> & Props> 
             <div className={st.col2}>
                 <div>
                     <span>Looking for a job: </span>
-                    <Field name={"lookingForAJob"} component={Input} type={"checkbox"}
-                                              placeholder={"Alex Silverhand"}/>
+                    <Field name={'lookingForAJob'} component={Input} type={'checkbox'}
+                           placeholder={'Alex Silverhand'}/>
                     <span>y/n</span>
                 </div>
                 <div>
-                    Skills: <br/><Field name={"lookingForAJobDescription"} component={Textarea}
-                                        validate={[maxSkillsLength]} placeholder={"My professional skills"}/>
+                    Skills: <br/><Field name={'lookingForAJobDescription'} component={Textarea}
+                                        validate={[maxSkillsLength]} placeholder={'My professional skills'}/>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@ const ProfileAboutForm: React.FC<InjectedFormProps<ProfileType, Props> & Props> 
                 {Object.keys(props.profile.contacts).map(site => {
                     return (
                         <div className={st.linkInput}>
-                            {site}: <Field key={site} name={"contacts." + site} component={Input}/>
+                            {site}: <Field key={site} name={'contacts.' + site} component={Input}/>
                         </div>
                     )
                 })}
@@ -63,6 +63,6 @@ const ProfileAboutForm: React.FC<InjectedFormProps<ProfileType, Props> & Props> 
     )
 }
 
-const ProfileAboutReduxForm = reduxForm<ProfileType, Props>({form: "aboutForm"})(ProfileAboutForm);
+const ProfileAboutReduxForm = reduxForm<ProfileType, Props>({form: 'aboutForm'})(ProfileAboutForm)
 
-export default ProfileAboutReduxForm;
+export default ProfileAboutReduxForm

@@ -1,5 +1,5 @@
-import React, {ChangeEvent, useEffect, useState} from "react";
-import st from "./ProfileStatus.module.css"
+import React, {ChangeEvent, useEffect, useState} from 'react'
+import st from './ProfileStatus.module.css'
 
 type Props = {
     status: string
@@ -8,27 +8,27 @@ type Props = {
 }
 
 const ProfileStatusWithHooks: React.FC<Props> = (props) => {
-    let [editMode, setEditMode] = useState(false);
+    let [editMode, setEditMode] = useState(false)
     let [status, setStatus] = useState(props.status)
 
-    useEffect(() =>{
-        setStatus(props.status);
-    }, [props.status]);     //function will be executed when props.status is changed
+    useEffect(() => {
+        setStatus(props.status)
+    }, [props.status])     //function will be executed when props.status is changed
 
 
     const activateEditMode = () => {
-        if(props.isOwner) {
-            setEditMode(true);
+        if (props.isOwner) {
+            setEditMode(true)
         }
     }
 
     const deactivateEditMode = () => {
-        setEditMode(false);
-        props.updateStatus(status);
+        setEditMode(false)
+        props.updateStatus(status)
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setStatus(e.currentTarget.value);
+        setStatus(e.currentTarget.value)
     }
 
     return (
@@ -36,15 +36,17 @@ const ProfileStatusWithHooks: React.FC<Props> = (props) => {
             {
                 editMode ?
                     <div>
-                        <input className={st.statusInput} onChange={onStatusChange} onBlur={deactivateEditMode} autoFocus={true} value={status}/>
+                        <input className={st.statusInput} onChange={onStatusChange} onBlur={deactivateEditMode}
+                               autoFocus={true} value={status}/>
                     </div>
                     :
                     <div>
-                        <label className={props.isOwner ? st.status : ""} onDoubleClick={activateEditMode}>{props.status || "Member of meow community!"}</label>
+                        <label className={props.isOwner ? st.status : ''}
+                               onDoubleClick={activateEditMode}>{props.status || 'Member of meow community!'}</label>
                     </div>
             }
         </div>
     )
 }
 
-export default ProfileStatusWithHooks;
+export default ProfileStatusWithHooks

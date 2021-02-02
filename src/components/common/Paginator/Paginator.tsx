@@ -1,6 +1,6 @@
-import st from "./Paginator.module.css";
-import React from "react";
-import classNames from "classnames";
+import st from './Paginator.module.css'
+import React from 'react'
+import classNames from 'classnames'
 
 type Props = {
     currentPage: number
@@ -10,11 +10,11 @@ type Props = {
 }
 
 const Paginator: React.FC<Props> = ({currentPage = 1, pageSize = 10, ...props}) => {
-    let pagesCount = Math.ceil(props.totalItemsCount / pageSize);
-    let pages: Array<number> = [];
+    let pagesCount = Math.ceil(props.totalItemsCount / pageSize)
+    let pages: Array<number> = []
 
     for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
+        pages.push(i)
     }
 
     const setPaginationBtnClasses = (p: number, firstButton: boolean, lastButton: boolean) => {
@@ -23,9 +23,9 @@ const Paginator: React.FC<Props> = ({currentPage = 1, pageSize = 10, ...props}) 
             [st.unselectedPage]: firstButton,
             [st.unselectedPage]: lastButton
         })
-    };
+    }
 
-    let now = currentPage;
+    let now = currentPage
 
     return (
         <div className={st.paginator}>
@@ -39,10 +39,10 @@ const Paginator: React.FC<Props> = ({currentPage = 1, pageSize = 10, ...props}) 
                                     props.onPageSelector(p)
                                 }}
                     >{p}</div>
-                } else return ""
+                } else return ''
             })}
         </div>
     )
 }
 
-export default Paginator;
+export default Paginator

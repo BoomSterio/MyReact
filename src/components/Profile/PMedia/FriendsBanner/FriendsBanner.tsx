@@ -9,7 +9,6 @@ import user from '../../../../assets/images/user.jpg'
 
 type Props = {}
 
-//todo: implement using server API
 const FriendsBanner: React.FC<Props> = (props) => {
     const totalFriendsCount = useSelector(getTotalUsersCount)
     const users = useSelector(getUsers)

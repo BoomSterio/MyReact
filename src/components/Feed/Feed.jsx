@@ -3,7 +3,7 @@ function Feed(props) {
         <div>
             Feed
         </div>
-    );
+    )
 }
 
-export default Feed;
+export default Feed

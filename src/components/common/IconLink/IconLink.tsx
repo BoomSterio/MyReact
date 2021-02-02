@@ -27,22 +27,22 @@ type Props = {
 }
 //todo: use websites object keys instead of switch-case (COMPLETED)
 const IconLink: React.FC<Props> = ({link, type}) => {
-    if (link === null || link === "") {
+    if (link === null || link === '') {
         return null
     }
 
-    if (!link.startsWith("https://") && !link.startsWith("www")) {
-        link = "https://" + link;
+    if (!link.startsWith('https://') && !link.startsWith('www')) {
+        link = 'https://' + link
     }
 
-    const icon = Websites[type as keyof ContactsType];
+    const icon = Websites[type as keyof ContactsType]
 
     function onLinkClick() {
         // @ts-ignore
-        window.location = link as Location;
+        window.location = link as Location
     }
 
-    return <span onClick={onLinkClick} title={link} className={st.linkBtn}><img src={icon} alt={"iconLink"}/></span>
+    return <span onClick={onLinkClick} title={link} className={st.linkBtn}><img src={icon} alt={'iconLink'}/></span>
 }
 
-export default IconLink;
+export default IconLink

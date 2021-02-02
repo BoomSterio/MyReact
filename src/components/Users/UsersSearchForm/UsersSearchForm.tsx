@@ -1,4 +1,6 @@
 import {Field, Form, Formik} from 'formik'
+import AntdField from 'formik-antd/es/input'
+import 'formik-antd/es/field/style'
 import st from './UsersSearchForm.module.css'
 import React from 'react'
 import {FilterType} from '../../../redux/users-reducer'
@@ -44,7 +46,7 @@ const UsersSearchForm: React.FC<Props> = React.memo((props) => {
                            type={'radio'}/><label htmlFor={'friends'}>Following</label>
                     <Field className={st.usersSwitch} id={'notFriends'} value={'false'} name={'friend'}
                            type={'radio'}/><label htmlFor={'notFriends'}>Not Following</label>
-                    <Field className={st.usersSearch} type={'text'} name={'term'}/>
+                    <AntdField className={st.usersSearch} type={'text'} name={'term'}/>
                     <Button type={'primary'} htmlType='submit' loading={isSubmitting}>Apply</Button>
                 </Form>
             )}

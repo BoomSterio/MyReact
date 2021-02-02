@@ -31,7 +31,7 @@ const Header: React.FC<Props> = (props) => {
                     </div>
                 </Col>
                 <Col span={19}>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[]}>
+                    <Menu selectable={false} theme="dark" mode="horizontal" defaultSelectedKeys={[]}>
                         <Menu.Item key="1">
                             <Link to="/profile">Profile</Link>
                         </Menu.Item>

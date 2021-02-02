@@ -8,11 +8,11 @@ import React, {ChangeEvent, useState} from 'react'
 import ProfileAboutForm from './ProfileAboutForm/ProfileAboutForm'
 import ProfileAbout from './ProfileAbout/ProfileAbout'
 import {ProfileType} from '../../../types/types'
-import {Button} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
 import {follow, unfollow} from '../../../redux/profile-reducer'
 import {AppStateType} from '../../../redux/redux-store'
 import FollowingButton from '../../common/FollowingButton/FollowingButton'
+import ProfilePicture from './ProfilePicture/ProfilePicture'
 
 type Props = {
     profile: ProfileType
@@ -65,28 +65,8 @@ const ProfileInfo: React.FC<Props> = (props) => {
                 />
             </div>
             <div className={props.isOwner ? st.myPfp : st.pfp}>
-                {props.isOwner ?
-                    <div>
-                        {/*todo: make new component ProfileImage */}
-                        <input type={'file'} name={'file'} id={'file'} className={st.inputFile}
-                               onChange={onProfilePhotoSelected}/>
-                        <label htmlFor={'file'} className={st.inputFileLabel}>
-                            <img src={(props.profile.photos.large == null) ? userPfp : props.profile.photos.large}
-                                 alt="pfp"
-                            />
-                        </label>
-                        <div className={st.photoLoader}>
-                            <input type={'file'} name={'file'} id={'file'} className={st.inputFile}
-                                   onChange={onProfilePhotoSelected}/>
-                            <label htmlFor={'file'} className={st.inputFileButton}><img src={download}
-                                                                                        alt={'downl'}/></label>
-                        </div>
-                    </div>
-                    :
-                    <div style={{padding: '0.1vw'}}>
-                        <img src={(props.profile.photos.large == null) ? userPfp : props.profile.photos.large}
-                             alt="pfp"/>
-                    </div>}
+                <ProfilePicture isOwner={props.isOwner} photo={props.profile.photos.large}
+                                onProfilePhotoSelected={onProfilePhotoSelected} />
             </div>
             {editMode ?
                 <ProfileAboutForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
@@ -99,17 +79,8 @@ const ProfileInfo: React.FC<Props> = (props) => {
                         {!props.isOwner &&
                         <div>
                             <FollowingButton followed={props.followed} isFollowingInProgress={isFollowingInProgress}
-                                             id={props.profile.userId} handleFollow={followUser} handleUnfollow={unfollowUser}/>
-                            {/*<Button style={props.followed
-                                ? {borderWidth: '2px', borderStyle: 'groove', color: 'darkred', borderRadius: '0.5vw'}
-                                : {borderWidth: '2px', borderStyle: 'groove', color: 'green', borderRadius: '0.5vw'}}
-                                    loading={isFollowingInProgress}
-                                    onClick={props.followed ? () => {
-                                        unfollowUser(props.profile.userId)
-                                    } : () => {
-                                        followUser(props.profile.userId)
-                                    }}>
-                                {props.followed ? 'Unfollow' : 'Follow'}</Button>*/}
+                                             id={props.profile.userId} handleFollow={followUser}
+                                             handleUnfollow={unfollowUser}/>
                         </div>}
                     </div>
                     <ProfileAbout profile={props.profile} isOwner={props.isOwner} goToEditMode={() => {

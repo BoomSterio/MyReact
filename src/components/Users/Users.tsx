@@ -92,17 +92,17 @@ const Users: FC<Props> = (props) => {
     return (
         <div className={st.usersPage}>
             <UsersSearchForm filter={filter} onFilterChanged={onFilterChanged}/>
-            <div style={{textAlign: 'center'}}>
+            <div className={st.paginator}>
                 <Pagination showQuickJumper showSizeChanger={false} defaultCurrent={1} current={currentPage}
-                            total={totalUsersCount} onChange={onPageSelector} />
+                            total={totalUsersCount} onChange={onPageSelector} pageSize={pageSize}/>
             </div>
-
-            {/*<Paginator totalItemsCount={totalUsersCount} pageSize={pageSize}
-                       currentPage={currentPage}
-                       onPageSelector={onPageSelector}/>*/}
             <div>
                 {isFetching ? <Preloader/> : null}
                 {usersElements}
+            </div>
+            <div className={st.paginator}>
+                <Pagination showQuickJumper showSizeChanger={false} defaultCurrent={1} current={currentPage}
+                            total={totalUsersCount} onChange={onPageSelector} pageSize={pageSize}/>
             </div>
         </div>
     )

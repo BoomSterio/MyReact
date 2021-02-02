@@ -1,6 +1,6 @@
 .paginator {
     text-align: center;
-    user-select:none
+    user-select:none;
 }
 .paginator div {
     display: inline-block;

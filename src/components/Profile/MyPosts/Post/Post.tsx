@@ -1,9 +1,10 @@
 import st from './Post.module.css'
-import React from 'react'
+import React, {useState} from 'react'
 import {Button, Col, Popconfirm, Row} from 'antd'
 import {DeleteOutlined} from '@ant-design/icons'
 import {useDispatch} from 'react-redux'
 import {actions} from '../../../../redux/profile-reducer'
+import LikeButton from '../../../common/LikeButton/LikeButton'
 
 type Props = {
     name: string
@@ -15,7 +16,20 @@ type Props = {
 }
 
 const Post: React.FC<Props> = (props) => {
+    let [likesCount, setLikesCount] = useState(props.likes)
+    let [liked, setLiked] = useState(false)
+
     const dispatch = useDispatch()
+
+    const handleLike = () => {
+        setLikesCount(likesCount+1)
+        setLiked(true)
+    }
+
+    const handleDilike = () => {
+        setLikesCount(likesCount-1)
+        setLiked(false)
+    }
 
     const onDeletePost = () => {
         dispatch(actions.deletePost(props.id))
@@ -24,7 +38,7 @@ const Post: React.FC<Props> = (props) => {
     return (
         <div className={st.item}>
             <Row gutter={[16, 8]}>
-                <Col span={2}>
+                <Col span={1}>
                     <div className={st.img}>
                         <img
                             src={props.img}
@@ -32,7 +46,7 @@ const Post: React.FC<Props> = (props) => {
                         />
                     </div>
                 </Col>
-                <Col span={19}>
+                <Col span={20}>
                     <div className={st.content}>
                         <div className={st.name}>
                             {props.name}
@@ -54,11 +68,8 @@ const Post: React.FC<Props> = (props) => {
             </Row>
             <Row>
                 <Col span={2}>
-                    <div>
-                        <span>like ({props.likes}) </span>
-                    </div>
+                    <LikeButton count={likesCount} liked={liked} handleLike={handleLike} handleDislike={handleDilike}/>
                 </Col>
-                <Col span={22}></Col>
             </Row>
             {/*<div className={st.img}>
                     <img

@@ -31,6 +31,14 @@ type DispatchProps = {
     initializeApp: () => void
 }
 
+/*const breadcrumbNameMap = {
+    '/apps': 'Application List',
+    '/apps/1': 'Application1',
+    '/apps/2': 'Application2',
+    '/apps/1/detail': 'Detail',
+    '/apps/2/detail': 'Detail',
+};*/
+
 //todo: change color scheme
 class App extends React.Component<StateProps & DispatchProps> {
     catchUnhandledErrors = (promiseRejectionEvent: PromiseRejectionEvent) => {
@@ -54,14 +62,14 @@ class App extends React.Component<StateProps & DispatchProps> {
         return (
             <Layout>
                 <Header/>
-                <Content style={{padding: '0 50px'}}>
+                <Content style={{padding: '0 2%'}}>
                     <Breadcrumb style={{margin: '16px 0'}}>
                         {/*todo: implement breadcrumbs*/}
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Layout className="site-layout-background" style={{padding: '24px 0'}}>
+                    <Layout className="site-layout-background" style={{padding: '2% 0'}}>
                         <Navbar/>
                         <Content style={{padding: '0 24px', minHeight: 280}}>
                             <Switch>

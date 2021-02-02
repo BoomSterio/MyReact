@@ -11,14 +11,15 @@ type Props = {
     isOwner: boolean
 }
 
+//todo: for future API update
 const MyPosts: React.FC<Props> = (props) => {
     const posts = useSelector((state: AppStateType) => state.profilePage.posts)
 
     const dispatch = useDispatch()
 
     let postsElements = [...posts].reverse().map(p => <Post name={p.name} message={p.message} likes={p.likes}
-                                                                  img={p.img} isOwner={props.isOwner}
-                                                                  key={p.id} id={p.id}/>);
+                                                            img={p.img} isOwner={props.isOwner}
+                                                            key={p.id} id={p.id}/>)
 
     const onAddPost = (formData: AddPostTextType) => {
         dispatch(actions.addPost(formData.text))
@@ -35,9 +36,9 @@ const MyPosts: React.FC<Props> = (props) => {
                 {postsElements}
             </div>
         </div>
-    );
+    )
 }
 
-const MyPostsMemo = React.memo(MyPosts);
+const MyPostsMemo = React.memo(MyPosts)
 
-export default MyPostsMemo;
+export default MyPostsMemo

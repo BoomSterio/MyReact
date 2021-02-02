@@ -3,7 +3,7 @@ import userPfp from '../../../assets/images/user.jpg'
 import {Link, NavLink} from 'react-router-dom'
 import {UserType} from '../../../types/types'
 import React from 'react'
-import {Button, Col, Row} from 'antd'
+import {Col, Row} from 'antd'
 import FollowingButton from '../../common/FollowingButton/FollowingButton'
 
 type Props = {
@@ -19,21 +19,17 @@ const UserItem: React.FC<Props> = ({user, follow, unfollow, followingInProgress}
             <Row gutter={[16, 8]}>
                 <Col span={2}>
                     <div className={st.avatar}>
-                        <div>
-                            <NavLink to={'/profile/' + user.id}>
-                                <img className={st.img} src={(user.photos.small == null) ? userPfp : user.photos.small}
-                                     alt="userPfp"/>
-                            </NavLink>
-                        </div>
+                        <NavLink to={'/profile/' + user.id}>
+                            <img className={st.img} src={(user.photos.small == null) ? userPfp : user.photos.small}
+                                 alt="userPfp"/>
+                        </NavLink>
                     </div>
                 </Col>
                 <Col span={8}>
                     <div className={st.info}>
-                        <div style={{paddingLeft: '0.5vw'}} >
-                            <Link to={'/profile/' + user.id}>
-                                <span className={st.fullName}>{user.name}</span>
-                            </Link>
-                        </div>
+                        <Link to={'/profile/' + user.id}>
+                            <span className={st.fullName}>{user.name}</span>
+                        </Link>
                         <div className={st.status}>
                             {user.status}
                         </div>
@@ -55,7 +51,6 @@ const UserItem: React.FC<Props> = ({user, follow, unfollow, followingInProgress}
                                          id={user.id} handleFollow={follow} handleUnfollow={unfollow}/>
                     </div>
                 </Col>
-                <Col span={22}/>
             </Row>
         </div>
 

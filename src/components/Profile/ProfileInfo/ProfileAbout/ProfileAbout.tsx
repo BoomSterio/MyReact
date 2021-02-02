@@ -37,7 +37,7 @@ const ProfileAbout: React.FC<Props> = (props) => {
                 </div>
 
             </div>
-            <div style={{verticalAlign:'bottom', display:'inline-block'}}>
+            <div style={{verticalAlign: 'bottom', display: 'inline-block'}}>
                 {props.isOwner &&
                 <div className={st.settingsBtn}>
                     <label onClick={props.goToEditMode}>

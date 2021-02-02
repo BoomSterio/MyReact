@@ -15,7 +15,7 @@ const MessageForm: React.FC<InjectedFormProps<MessageFormValuesType>> = (props) 
             <Row>
                 <Col span={20}>
                     <Field className={st.textField} name={'messageBody'} component={Textarea} validate={[maxLength]}
-                           autoFocus={true} placeholder="Enter your message..."/>
+                           autoFocus={true} placeholder={'Enter your message...'}/>
                 </Col>
                 <Col span={4}>
                     <Button className={st.submitButton} htmlType={'submit'}>

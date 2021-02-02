@@ -5,8 +5,7 @@ import {Redirect} from 'react-router-dom'
 import {login} from '../../redux/auth-reducer'
 import {LoginFormValuesType, LoginReduxForm} from './LoginForm'
 
-type Props = {
-}
+type Props = {}
 
 const Login: React.FC<Props> = (props) => {
     const captchaUrl = useSelector((state: AppStateType) => state.auth.captchaUrl)
@@ -28,7 +27,7 @@ const Login: React.FC<Props> = (props) => {
         <div>
             <h2>Login</h2>
             <div>
-                <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
             </div>
         </div>
     )

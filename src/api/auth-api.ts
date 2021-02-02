@@ -1,4 +1,4 @@
-import {instance, ApiResponseType, ResultCodesEnum, ResultCodeWithCaptchaEnum} from "./api";
+import {instance, ApiResponseType, ResultCodesEnum, ResultCodeWithCaptchaEnum} from './api'
 
 type MeResponceType = ApiResponseType<{
     id: number

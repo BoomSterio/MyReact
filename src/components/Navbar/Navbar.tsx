@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import React from 'react'
 import {Layout, Menu} from 'antd'
 import {
+    ApartmentOutlined,
     CommentOutlined,
     CustomerServiceOutlined,
     NotificationOutlined,
@@ -17,8 +18,9 @@ import {Ad} from '../common/Ads/Ad'
 /*todo: картинки вместо ссылок*/
 const Navbar: React.FC = () => {
     return (
-        <Layout.Sider className="site-layout-background" width={200}>
-            <nav className={st.nav}>
+        <Layout.Sider className="site-layout-background" breakpoint={'lg'}
+                      collapsedWidth={'0'}>
+            <nav >
                 <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['1']}
                       style={{height: '100%'}}>
                     <Menu.Item key="1" icon={<UserOutlined/>} title="nav1">
@@ -38,7 +40,7 @@ const Navbar: React.FC = () => {
                     <Menu.Item key="5" icon={<TeamOutlined/>} title="nav4">
                         <Link to="/users">Users</Link>
                     </Menu.Item>
-                    <Menu.Item key="6" icon={<UserOutlined/>} title="nav5">
+                    <Menu.Item key="6" icon={<ApartmentOutlined spin/>} title="nav5">
                         <Link to="/groups">Groups</Link>
                     </Menu.Item>
                     <Menu.Item key="7" icon={<PlayCircleOutlined/>} title="nav6">
