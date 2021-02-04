@@ -35,9 +35,3 @@ export type UserType = {
     photos: PhotosType
     followed: boolean
 }
-export type ChatMessageType = {
-    message: string
-    photo: string
-    userId: string
-    userName: string
-}

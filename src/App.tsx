@@ -69,7 +69,7 @@ class App extends React.Component<StateProps & DispatchProps> {
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Layout className="site-layout-background" style={{padding: '2% 0'}}>
+                    <Layout style={{padding: '2% 0'}}>
                         <Navbar/>
                         <Content style={{padding: '0 24px', minHeight: 280}}>
                             <Switch>
@@ -88,7 +88,7 @@ class App extends React.Component<StateProps & DispatchProps> {
                         </Content>
                     </Layout>
                 </Content>
-                <Footer style={{textAlign: 'center'}}>Anti-hOOman Zone ©2021 All rights reserved</Footer>
+                <Footer style={{textAlign: 'center'}}>WorkBook ©2021 All rights reserved</Footer>
             </Layout>
         )
     }
