@@ -25,11 +25,8 @@
     color: black
 }
 .submitButton {
-    background-color: #1F3041;
     color:white;
-    font-weight: 600;
-    border: none;
-    border-radius: 0.5vw;
+
     height: 2.5vw;
     width: 40%;
     text-align: center;

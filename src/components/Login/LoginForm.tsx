@@ -15,10 +15,7 @@ const minEmailLenth = 5
 
 const loginFormValidate = (values: any) => {
     const errors: any = {
-        /*email: '',
-        password: '',
-        rememberMe: '',
-        captcha: ''*/
+
     }
 
     if (values.email.length > maxEmailLength) {
@@ -88,8 +85,8 @@ const LoginForm: React.FC<OwnPropsType> = (props) => {
                                placeholder={'password'} style={{width: '11vw', marginRight: '10px'}}/>
                         <span onClick={onTogglePassVisibility}>
                             {isPassVisible ?
-                                <EyeOutlined/>
-                                : <EyeInvisibleOutlined/>}
+                                <EyeOutlined className={st.passIcon}/>
+                                : <EyeInvisibleOutlined className={st.passIcon}/>}
                         </span>
                         <ErrorMessage className={st.error} name={'password'} component={'div'}/>
 

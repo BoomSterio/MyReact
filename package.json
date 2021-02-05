@@ -21,6 +21,7 @@
     "@types/uuid": "^8.3.0",
     "antd": "^4.10.2",
     "axios": "^0.21.0",
+    "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "craco-less": "^1.17.1",
     "formik": "^2.2.6",

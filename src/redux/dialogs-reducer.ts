@@ -64,13 +64,12 @@ let initialState = {
             img: 'https://www.cybersalt.org/images/stories/cleanlaugh/cats/catmousenightmare.jpg'
         },
     ] as Array<DialogType>,
-
     messages: [
-        {id: 1, type: 'otherMessage', text: 'Чем отличается негр от собаки'},
+        {id: 1, type: 'otherMessage', text: 'bfuiuiwfguisdfbkfdsfds'},
         {id: 2, type: 'myMessage', text: 'da?'},
-        {id: 3, type: 'otherMessage', text: 'перед собакой есть след от торможения'},
+        {id: 3, type: 'otherMessage', text: 'dalk h7 7ya9 9hasi hialish'},
         {id: 4, type: 'myMessage', text: 'каво'},
-        {id: 5, type: 'otherMessage', text: 'а ещё собака с радостью встречает своего хозяина'},
+        {id: 5, type: 'otherMessage', text: 'ouifhuisj 79y 9h ui uhuihksbfjkwbdk guiaha'},
     ] as Array<MessageType>,
 }
 export type InitialStateType = typeof initialState;

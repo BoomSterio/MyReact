@@ -4,8 +4,10 @@ import 'formik-antd/es/field/style'
 import st from './UsersSearchForm.module.css'
 import React from 'react'
 import {FilterType} from '../../../redux/users-reducer'
-import {Button} from 'antd'
+import {Button, Tabs} from 'antd'
 import {Radio} from 'formik-antd'
+
+const {TabPane} = Tabs
 
 const usersSearchFormValidate = (values: any) => {
     const errors = {}
@@ -53,12 +55,6 @@ const UsersSearchForm: React.FC<Props> = React.memo((props) => {
                             Not following
                         </Radio.Button>
                     </Radio.Group>
-                    {/*<Field className={st.usersSwitch} id={'allUsers'} value={'null'} name={'friend'}
-                           type={'radio'}/><label htmlFor={'allUsers'}>All users</label>
-                    <Field className={st.usersSwitch} id={'friends'} value={'true'} name={'friend'}
-                           type={'radio'}/><label htmlFor={'friends'}>Following</label>
-                    <Field className={st.usersSwitch} id={'notFriends'} value={'false'} name={'friend'}
-                           type={'radio'}/><label htmlFor={'notFriends'}>Not Following</label>*/}
                     <AntdField className={st.usersSearch} type={'text'} name={'term'}/>
                     <Button type={'primary'} htmlType='submit' loading={isSubmitting}>Apply</Button>
                 </Form>

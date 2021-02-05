@@ -1,19 +1,19 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Alert, Avatar, Button, Col, Comment, Row} from 'antd'
+import {Alert, Avatar, Badge, Button, Col, Comment, Row} from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import {useDispatch, useSelector} from 'react-redux'
 import {sendMessage, startMessagesListening, stopMessagesListening} from '../../redux/chat-reducer'
 import {AppStateType} from '../../redux/redux-store'
 import userPfp from '../../assets/images/user.jpg'
 import {ChatMessageAPIType} from '../../api/chat-api'
+import {DownOutlined, SendOutlined} from '@ant-design/icons'
 
 const Chats: React.FC = () => {
     return (
         <div>
             <ul>
                 <li>Chat1</li>
-                <li>Chat2</li>
             </ul>
             <Chat/>
         </div>
@@ -47,29 +47,45 @@ const Messages: React.FC = () => {
     const messages = useSelector((state: AppStateType) => state.chat.messages)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
     const [isAutoScroll, setIsAutoScroll] = useState(true)
+    const [isAnyUnread, setIsAnyUnread] = useState(false)
+    const [showBadge, setShowBadge] = useState(false)
 
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
         let element = e.currentTarget
         if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 100) {
             !isAutoScroll && setIsAutoScroll(true)
+            setIsAnyUnread(false)
+            setShowBadge(false)
         } else {
             isAutoScroll && setIsAutoScroll(false)
+            setShowBadge(true)
         }
     }
 
+    const goDown = () => {
+        messagesAnchorRef.current?.scrollIntoView({behavior: 'smooth'})
+    }
+
     useEffect(() => {
-        if (isAutoScroll)
-            messagesAnchorRef.current?.scrollIntoView({behavior: 'smooth'})
+        setIsAnyUnread(true)
+        if (isAutoScroll) {
+            goDown()
+            setIsAnyUnread(false)
+        }
     }, [messages])
 
-    /*useEffect(() => {
-        messagesAnchorRef.current?.scrollIntoView()
-    }, [])*/
-
     return (
-        <div style={{height: '27.5vw', overflowY: 'auto',}} onScroll={scrollHandler}>
-            {messages.map((m) => <Message message={m} key={m.id}/>)}
-            <div ref={messagesAnchorRef}/>
+        <div>
+            <div style={{height: '27.5vw', overflowY: 'auto',}} onScroll={scrollHandler}>
+                {messages.map((m) => <Message message={m} key={m.id}/>)}
+                <div ref={messagesAnchorRef}/>
+            </div>
+            {showBadge &&
+            <div style={{position: 'absolute', top: '71.5%', left: '50%'}}>
+                <Badge dot={isAnyUnread}>
+                    <Button shape={'circle'} icon={<DownOutlined/>} onClick={goDown}/>
+                </Badge>
+            </div>}
         </div>
     )
 }
@@ -90,9 +106,6 @@ const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({message}
                         <Avatar src={message.photo ? message.photo : userPfp} alt={'pfp'}/>
                     </Link>
                 }/>
-            {/*<Link to={`/profile/${message.userId}`}><Avatar src={message.photo ? message.photo : userPfp} alt={'ava'}/></Link>
-            <b>{message.userName}</b>
-            <div>{message.message}</div>*/}
         </div>
     )
 })
@@ -125,9 +138,9 @@ const MessageForm: React.FC = () => {
                     }}/>
                 </Col>
                 <Col span={4}>
-                    <Button htmlType={'submit'} loading={chatStatus !== 'ready'} onClick={sendMessageHandler}>
-                        Send
-                    </Button>
+                    <Button htmlType={'submit'} loading={chatStatus !== 'ready'} icon={<SendOutlined/>}
+                            shape={'circle'} size={'large'} style={{width: '2.5vw', height: '2.5vw'}}
+                            onClick={sendMessageHandler}/>
                 </Col>
             </Row>
 

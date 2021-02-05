@@ -21,6 +21,14 @@
     width: 100%
 }
 
+.passIcon {
+    float: right;
+    left: -40px;
+    margin-top: 9px;
+    position: relative;
+    z-index: 1;
+}
+
 .error {
     border: solid red 2px;
     border-radius: 5px;

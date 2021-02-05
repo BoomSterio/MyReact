@@ -12,8 +12,13 @@
 .icon img {
     width: 3.8vw;
     height: 3.8vw;
-    border-radius: 35px;
+    border-radius: 50%;
     object-fit: cover;
+    transition: 0.3s;
+}
+.icon img:hover {
+    transform: scale(1.05);
+    filter: hue-rotate(-20deg) brightness(60%);
 }
 
 .friendsShortcut {
