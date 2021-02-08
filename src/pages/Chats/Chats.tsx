@@ -48,13 +48,14 @@ const Messages: React.FC = () => {
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
     const [isAutoScroll, setIsAutoScroll] = useState(true)
     const [isAnyUnread, setIsAnyUnread] = useState(false)
+    const [unreadCount, setUnreadCount] = useState(0)
     const [showBadge, setShowBadge] = useState(false)
 
     const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
         let element = e.currentTarget
         if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 100) {
             !isAutoScroll && setIsAutoScroll(true)
-            setIsAnyUnread(false)
+            setUnreadCount(0)
             setShowBadge(false)
         } else {
             isAutoScroll && setIsAutoScroll(false)
@@ -67,10 +68,10 @@ const Messages: React.FC = () => {
     }
 
     useEffect(() => {
-        setIsAnyUnread(true)
+        setUnreadCount(unreadCount + 1)
         if (isAutoScroll) {
             goDown()
-            setIsAnyUnread(false)
+            setUnreadCount(0)
         }
     }, [messages])
 
@@ -82,7 +83,7 @@ const Messages: React.FC = () => {
             </div>
             {showBadge &&
             <div style={{position: 'absolute', top: '71.5%', left: '50%'}}>
-                <Badge dot={isAnyUnread}>
+                <Badge count={unreadCount}>
                     <Button shape={'circle'} icon={<DownOutlined/>} onClick={goDown}/>
                 </Badge>
             </div>}
@@ -91,7 +92,6 @@ const Messages: React.FC = () => {
 }
 
 const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({message}) => {
-    console.log('MESSAGE')
     return (
         <div style={{border: '1px solid #1f1f1f', borderWidth: '0 0 2px 0'}}>
             <Comment
@@ -133,7 +133,7 @@ const MessageForm: React.FC = () => {
 
             <Row>
                 <Col span={19}>
-                    <TextArea value={message} onChange={(e) => {
+                    <TextArea autoSize={{minRows: 3, maxRows: 5}} value={message} onChange={(e) => {
                         setMessage(e.target.value)
                     }}/>
                 </Col>

@@ -48,6 +48,7 @@ Image img:hover {
     border-radius: 1px 1px 12px 12px;
     padding: 1%;
     padding-top: 0;
+    filter: brightness(70%) contrast(85%);
 }
 
 .myInfo {
@@ -66,6 +67,43 @@ Image img:hover {
     color: #E89383;
     font-size: 1.1em;
     text-shadow: 1px 1px 2px black;
+}
+
+@media (max-width: 1300px) {
+    .profileInfo {
+        max-height: 46vw;
+    }
+    .myPfp img {
+        width: 9vw;
+        height: 9vw;
+        border-radius: 5vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .myPfp img {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 5vw;
+    }
+}
+
+@media (max-width: 567px) {
+    .profileInfo {
+        max-height: 70vw;
+    }
+    .myPfp img {
+        width: 12vw;
+        height: 12vw;
+        border-radius: 6vw;
+    }
+}
+
+@media (max-width: 450px) {
+    .profileInfo {
+        min-height: 70vw;
+        max-height: 105vw;
+    }
 }
 
 

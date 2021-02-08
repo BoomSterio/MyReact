@@ -18,9 +18,9 @@ import {Ad} from '../common/Ads/Ad'
 /*todo: картинки вместо ссылок*/
 const Navbar: React.FC = () => {
     return (
-        <Layout.Sider className="site-layout-background" breakpoint={'lg'}
+        <Layout.Sider className={'site-layout-background' + st.fixedNav} breakpoint={'lg'}
                       collapsedWidth={'0'}>
-            <nav >
+            <nav>
                 <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['1']}
                       style={{height: '100%'}}>
                     <Menu.Item key="1" icon={<UserOutlined/>} title="nav1">

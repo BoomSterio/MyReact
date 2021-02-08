@@ -6,6 +6,7 @@ import React, {useEffect} from 'react'
 import {requestUsers} from '../../../../redux/users-reducer'
 import {Button, Col, Row} from 'antd'
 import user from '../../../../assets/images/user.jpg'
+import {Image} from 'react-bootstrap'
 
 type Props = {}
 
@@ -21,12 +22,16 @@ const FriendsBanner: React.FC<Props> = (props) => {
 
     const usersElementsRow1 = users.slice(-3).map((u) => (
         <Col span={8} className={st.icon} key={u.id}>
-            <NavLink to={'/profile/' + u.id}><img src={u.photos.small ? u.photos.small : user} alt={''}/></NavLink>
+            <NavLink to={'/profile/' + u.id}>
+                <img src={u.photos.small ? u.photos.small : user} alt={'friend'}/>
+            </NavLink>
         </Col>
     ))
     const usersElementsRow2 = users.slice(0, 3).map((u) => (
         <Col span={8} className={st.icon} key={u.id}>
-            <NavLink to={'/profile/' + u.id}><img src={u.photos.small ? u.photos.small : user} alt={''}/></NavLink>
+            <NavLink to={'/profile/' + u.id}>
+                <Image src={u.photos.small ? u.photos.small : user} alt={'friend'} roundedCircle/>
+            </NavLink>
         </Col>
     ))
 
@@ -39,10 +44,10 @@ const FriendsBanner: React.FC<Props> = (props) => {
             </div>
             <hr/>
             <div className={st.friendsIcons}>
-                <Row gutter={[8, 8]}>
+                <Row className="justify-content-around" gutter={[8, 8]}>
                     {usersElementsRow1}
                 </Row>
-                <Row gutter={[8, 8]}>
+                <Row className="justify-content-around" gutter={[8, 8]}>
                     {usersElementsRow2}
                 </Row>
             </div>

@@ -9,13 +9,12 @@
 }
 
 .settingsBtn {
-    margin-left: -0.15vw;
-    text-align: right;
+    float: left;
 }
 
 .settingsBtn img{
-    width: 1.4vw;
-    height: 1.4vw;
+    width: 1.5em;
+    height: 1.5em;
     cursor: pointer;
     transition: all .3s ease;
 }
@@ -24,4 +23,10 @@
     width: 1.5vw;
     height: 1.5vw;
     transform: rotate(45deg);
+}
+
+@media (max-width: 767px) {
+    .infoAbout {
+        font-size: 13px;
+    }
 }

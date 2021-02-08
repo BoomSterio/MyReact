@@ -23,14 +23,14 @@ const Header: React.FC<Props> = (props) => {
     return (
         <Layout.Header className="header">
             <Row>
-                <Col span={1}>
+                <Col md={1} lg={1} span={2} >
                     <div className="logo">
                         <Link to={'/about'}>
-                            <img src={logo} alt={'logo'} style={{filter: 'invert(100%)', height: '3.5vw'}}/>
+                            <img src={logo} alt={'logo'} className={st.logoImg}/>
                         </Link>
                     </div>
                 </Col>
-                <Col span={19}>
+                <Col span={17}>
                     <Menu selectable={false} theme="dark" mode="horizontal" defaultSelectedKeys={[]}>
                         <Menu.Item key="1">
                             <Link to="/profile">Profile</Link>

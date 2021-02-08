@@ -10,6 +10,9 @@
 .avatar {
     text-align: left;
 }
+.avatar img {
+    border-radius: 50%;
+}
 
 .info {
     text-align: left;
@@ -33,9 +36,8 @@
     text-align: right;
 }
 
-.img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 40px;
-    object-fit: cover;
+@media (min-width: 1550px) {
+    .avatar img {
+        max-width: 80px;
+    }
 }

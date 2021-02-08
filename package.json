@@ -29,6 +29,7 @@
     "formik-redux": "^2.0.0",
     "query-string": "^6.13.8",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
     "react-paginate": "^7.0.0",
     "react-redux": "^7.2.2",

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Profile from './Profile'
-import {connect} from 'react-redux'
+import {connect, useDispatch, useSelector} from 'react-redux'
 import {
+    fetchingStarted,
     getFollowStatus,
     getStatus,
     getUserProfile,
@@ -13,14 +14,9 @@ import {RouteComponentProps, withRouter} from 'react-router-dom'
 import {compose} from 'redux'
 import {AppStateType} from '../../redux/redux-store'
 import {ProfileType} from '../../types/types'
-
-type MapStatePropsType = {
-    profile: ProfileType
-    status: string
-    followed: boolean
-    authorizedUserId: number | null
-    isAuth: boolean
-}
+import Preloader from '../common/Preloader/Preloader'
+import {getFetched, getFollowed, getProfile, getUserStatus} from '../../redux/profile-selectors'
+import {getAuthorizedUserId, getIsAuth} from '../../redux/auth-selectors'
 
 type MapDispatchPropsType = {
     getUserProfile: (userId: number) => void
@@ -28,18 +24,17 @@ type MapDispatchPropsType = {
     getFollowStatus: (userId: number) => void
     updateStatus: (status: string) => void
     savePhoto: (file: File) => void
-    saveProfileInfo: (profile: ProfileType) => Promise<any>
+    saveProfileInfo: (profile: ProfileType) => Promise<any>,
+    fetchingStarted: () => void
 }
-
-type StateAndDispatch = MapStatePropsType & MapDispatchPropsType
 
 type PathParamsType = {
     userId: string
 }
 
-type Props = StateAndDispatch & RouteComponentProps<PathParamsType>;
+type Props = MapDispatchPropsType & RouteComponentProps<PathParamsType>;
 
-class ProfileContainer extends React.Component<Props> {
+/*class ProfileContainer extends React.Component<Props> {
     refreshProfile() {
         let userId: number | null = +this.props.match.params.userId
 
@@ -54,6 +49,7 @@ class ProfileContainer extends React.Component<Props> {
         if (!userId) {
             console.error('User id should exist in state or URL params. UserId not found')
         } else {
+            this.props.fetchingStarted()
             this.props.getUserProfile(userId)
             this.props.getStatus(userId)
             this.props.getFollowStatus(userId)
@@ -71,6 +67,10 @@ class ProfileContainer extends React.Component<Props> {
     }
 
     render() {
+        if (!this.props.fetched) {
+            return <Preloader/>
+        }
+
         return (
             <Profile {...this.props} isOwner={!this.props.match.params.userId} profile={this.props.profile}
                      followed={this.props.followed}
@@ -78,26 +78,71 @@ class ProfileContainer extends React.Component<Props> {
                      savePhoto={this.props.savePhoto}/>
         )
     }
-}
+}*/
 
-let mapStateToProps = (state: AppStateType) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    authorizedUserId: state.auth.userId,
-    isAuth: state.auth.isAuth,
-    followed: state.profilePage.followStatus
-})
+const ProfileContainer: React.FC<Props> = (props) => {
+    const profile = useSelector(getProfile)
+    const status = useSelector(getUserStatus)
+    const followed = useSelector(getFollowed)
+    const fetched = useSelector(getFetched)
+    const authorizedUserId = useSelector(getAuthorizedUserId)
+    const isAuth = useSelector(getIsAuth)
+
+    const dispatch = useDispatch()
+
+    function refreshProfile() {
+        let userId: number | null = +props.match.params.userId
+
+        if (!userId) {
+            userId = authorizedUserId
+            if (!userId) {
+                //todo: replace push with Redirect
+                props.history.push('/login')
+            }
+        }
+
+        if (!userId) {
+            console.error('User id should exist in state or URL params. UserId not found')
+        } else {
+            dispatch(fetchingStarted())
+            dispatch(getUserProfile(userId))
+            dispatch(getStatus(userId))
+            dispatch(getFollowStatus(userId))
+        }
+    }
+
+    useEffect(() => {
+        refreshProfile()
+    }, [])
+
+    useEffect(() => {
+        refreshProfile()
+    }, [props.match.params.userId])
+
+    if (!fetched) {
+        return <Preloader/>
+    }
+
+    return (
+        <Profile {...props} isOwner={!props.match.params.userId} profile={profile}
+                 followed={followed}
+                 status={status} updateStatus={props.updateStatus}
+                 savePhoto={props.savePhoto}/>
+    )
+
+}
 
 export default compose<React.ComponentType>(
     //withAuthRedirect,
     withRouter,
-    connect(mapStateToProps, {/*setUserProfile,*/
+    connect(null, {
         getUserProfile,
         getStatus,
         getFollowStatus,
         updateStatus,
         savePhoto,
-        saveProfileInfo
+        saveProfileInfo,
+        fetchingStarted
     }),
 )(ProfileContainer)
 

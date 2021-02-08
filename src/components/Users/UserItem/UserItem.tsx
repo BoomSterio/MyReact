@@ -5,6 +5,8 @@ import {UserType} from '../../../types/types'
 import React from 'react'
 import {Col, Row} from 'antd'
 import FollowingButton from '../../common/FollowingButton/FollowingButton'
+import user from '../../../assets/images/user.jpg'
+import {Image} from 'react-bootstrap'
 
 type Props = {
     user: UserType
@@ -17,15 +19,14 @@ const UserItem: React.FC<Props> = ({user, follow, unfollow, followingInProgress}
     return (
         <div className={st.user} key={user.id}>
             <Row gutter={[16, 8]}>
-                <Col span={2}>
+                <Col span={2} xs={5} sm={4} md={3} lg={2}>
                     <div className={st.avatar}>
                         <NavLink to={'/profile/' + user.id}>
-                            <img className={st.img} src={(user.photos.small == null) ? userPfp : user.photos.small}
-                                 alt="userPfp"/>
+                            <Image className={'img-fluid'} src={(user.photos.small == null) ? userPfp : user.photos.small} alt={'userPfp'} roundedCircle/>
                         </NavLink>
                     </div>
                 </Col>
-                <Col span={8}>
+                <Col span={8} xs={5} sm={6} md={7} lg={8}>
                     <div className={st.info}>
                         <Link to={'/profile/' + user.id}>
                             <span className={st.fullName}>{user.name}</span>

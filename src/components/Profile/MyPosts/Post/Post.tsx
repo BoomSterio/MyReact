@@ -38,15 +38,12 @@ const Post: React.FC<Props> = (props) => {
     return (
         <div className={st.item}>
             <Row gutter={[16, 8]}>
-                <Col span={1}>
+                <Col span={2}>
                     <div className={st.img}>
-                        <img
-                            src={props.img}
-                            alt="cpfp"
-                        />
+                        <img src={props.img} alt="cpfp"/>
                     </div>
                 </Col>
-                <Col span={20}>
+                <Col span={19}>
                     <div className={st.content}>
                         <div className={st.name}>
                             {props.name}
@@ -60,7 +57,7 @@ const Post: React.FC<Props> = (props) => {
                     {props.isOwner &&
                     <Popconfirm title={`Delete post by ${props.name}?`} onConfirm={onDeletePost}
                                 okText="Yes" cancelText="No">
-                        <div className={st.deleteButton}>
+                        <div>
                             <Button danger type={'link'} icon={<DeleteOutlined/>}/>
                         </div>
                     </Popconfirm>}

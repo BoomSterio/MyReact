@@ -6,14 +6,9 @@
     background-color: #314A61;
 }
 
-.img {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 0.25em;
-    margin-left: 0.25em;
-}
-.img img {
-    width: 3.5em;
+.logoImg{
+    filter: invert(100%);
+    height: 3.5vw;
 }
 
 .slogan {
@@ -33,4 +28,24 @@
 }
 .loginBlock a {
     color: white;
+}
+@media (max-width: 992px) {
+    .logoImg {
+        text-align: left;
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 767px) {
+    .logoImg {
+        text-align: left;
+        transform: scale(1.8);
+    }
+}
+
+@media (max-width: 767px) {
+    .logoImg {
+        text-align: left;
+        transform: scale(2.5);
+    }
 }

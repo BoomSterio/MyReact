@@ -10,11 +10,10 @@
     text-align: center;
 }
 .icon img {
-    width: 3.8vw;
-    height: 3.8vw;
+    padding: 3px 10px;
     border-radius: 50%;
     object-fit: cover;
-    transition: 0.3s;
+    transition: all 0.3s;
 }
 .icon img:hover {
     transform: scale(1.05);
@@ -37,4 +36,16 @@
 .friendsIcons {
     text-align: center;
     padding: 0 1.1vw
+}
+
+@media (max-width: 1700px) {
+    .icon img {
+        padding: 3px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .icon img {
+        padding: 0;
+    }
 }

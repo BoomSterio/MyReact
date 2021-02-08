@@ -1,11 +1,4 @@
-.grid {
-    display:grid;
-    grid-template-columns: 72fr 28fr;
-
-}
-
 .personalBlock {
-    border-right: #7B8997 1px solid;
 }
 
 .mediaBlock {

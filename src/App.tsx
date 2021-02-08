@@ -63,12 +63,12 @@ class App extends React.Component<StateProps & DispatchProps> {
             <Layout>
                 <Header/>
                 <Content style={{padding: '0 2%'}}>
-                    <Breadcrumb style={{margin: '16px 0'}}>
-                        {/*todo: implement breadcrumbs*/}
+                    {/*<Breadcrumb style={{margin: '16px 0'}}>
+                        todo: implement breadcrumbs
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
-                    </Breadcrumb>
+                    </Breadcrumb>*/}
                     <Layout style={{padding: '2% 0'}}>
                         <Navbar/>
                         <Content style={{padding: '0 24px', minHeight: 280}}>

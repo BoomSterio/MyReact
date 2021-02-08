@@ -60,7 +60,7 @@ const ProfileInfo: React.FC<Props> = (props) => {
         <div className={st.profileInfo}>
             <div className={st.banner}>
                 <img
-                    src={sunrise}
+                    src={'https://picsum.photos/3840/2160'}
                     alt="pfBanner"
                 />
             </div>

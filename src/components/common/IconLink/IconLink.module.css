@@ -1,7 +1,7 @@
 .linkBtn img {
-    width: 2.2vw;
-    height: 2.2vw;
-    border-radius: 1.3vw;
+    width: 3em;
+    height: 3em;
+    border-radius: 1.5em;
     margin: 0vw 0.15vw;
     margin-top: 0.5vw;
     cursor: pointer;
@@ -10,4 +10,11 @@
 
 .linkBtn img:hover {
     filter: hue-rotate(-10deg) invert(20%) brightness(80%) ;
+}
+
+@media (max-width: 767px) {
+    .linkBtn img {
+        width: 2em;
+        height: 2em;
+    }
 }

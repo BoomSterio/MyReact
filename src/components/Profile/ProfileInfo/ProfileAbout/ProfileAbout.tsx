@@ -18,8 +18,7 @@ const ProfileAbout: React.FC<Props> = (props) => {
     return (
         <div className={st.infoAbout}>
             <div>
-                <div onDoubleClick={props.isOwner ? props.goToEditMode : () => {
-                }}>
+                <div onDoubleClick={props.isOwner ? props.goToEditMode : () => {}}>
                     {props.profile.aboutMe &&
                     <div>
                         <b>About me: </b>{props.profile.aboutMe}

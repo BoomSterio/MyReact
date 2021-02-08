@@ -46,7 +46,8 @@ let initialState = {
     status: '',
     followStatus: false,
     isFollowingInProgress: false,
-    newPostText: ''
+    newPostText: '',
+    fetched: false
 }
 export type InitialStateType = typeof initialState;
 
@@ -102,6 +103,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
                 ...state, profile: {...state.profile, photos: action.photos} as ProfileType
             }
         }
+        case 'profilePage/SET_FETCHED': {
+            return {
+                ...state, fetched: action.fetched
+            }
+        }
 
         default:
             return state
@@ -120,6 +126,7 @@ export const actions = {
         isFollowingInProgress
     } as const),
     savePhotoSuccess: (photos: PhotosType) => ({type: 'profilePage/SAVE_PHOTO_SUCCESS', photos} as const),
+    setFetched: (fetched: boolean) => ({type: 'profilePage/SET_FETCHED', fetched} as const)
 }
 
 //thunk creators
@@ -128,6 +135,7 @@ type ThunkType = BaseThunkType<ActionsTypes | FormAction>
 export const getUserProfile = (userId: number): ThunkType => async (dispatch) => {
     let data = await profileAPI.getProfile(userId)
     dispatch(actions.setUserProfile(data))
+    dispatch(actions.setFetched(true))
 }
 
 export const getStatus = (userId: number): ThunkType => async (dispatch) => {
@@ -187,6 +195,10 @@ export const saveProfileInfo = (profile: ProfileType): ThunkType => async (dispa
         dispatch(action)
         return Promise.reject(data.messages[0])
     }
+}
+
+export const fetchingStarted = (): ThunkType => async (dispatch) => {
+    dispatch(actions.setFetched(false))
 }
 
 export default profileReducer

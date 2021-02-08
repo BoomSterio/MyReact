@@ -5,9 +5,10 @@ import Preloader from '../common/Preloader/Preloader'
 import {ProfileType} from '../../types/types'
 import React from 'react'
 import MyPosts from './MyPosts/MyPosts'
+import {Col, Row} from 'antd'
 
 type Props = {
-    profile: ProfileType
+    profile: ProfileType | null
     isOwner: boolean
     status: string
     followed: boolean
@@ -22,18 +23,22 @@ const Profile: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className={st.grid}>
-            <div className={st.personalBlock}>
-                <ProfileInfo isOwner={props.isOwner} profile={props.profile} status={props.status}
-                             followed={props.followed}
-                             updateStatus={props.updateStatus} savePhoto={props.savePhoto}
-                             saveProfileInfo={props.saveProfileInfo}/>
-                <MyPosts isOwner={props.isOwner}/>
-            </div>
-            <div className={st.mediaBlock}>
-                <PMedia isOwner={props.isOwner}/>
-            </div>
-        </div>
+        <Row>
+            <Col md={17}>
+                <div className={st.personalBlock}>
+                    <ProfileInfo isOwner={props.isOwner} profile={props.profile} status={props.status}
+                                 followed={props.followed}
+                                 updateStatus={props.updateStatus} savePhoto={props.savePhoto}
+                                 saveProfileInfo={props.saveProfileInfo}/>
+                    <MyPosts isOwner={props.isOwner}/>
+                </div>
+            </Col>
+            <Col md={7} span={24}>
+                <div className={st.mediaBlock}>
+                    <PMedia isOwner={props.isOwner}/>
+                </div>
+            </Col>
+        </Row>
     )
 }
 

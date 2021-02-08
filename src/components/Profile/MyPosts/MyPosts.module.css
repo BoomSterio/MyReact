@@ -14,7 +14,7 @@
     align-items: center;
     text-align: center;
     color: black;
-    width: 70%
+    width: 80%
 }
 .postCreator textarea {
     display: block;
@@ -31,4 +31,33 @@
 
 .posts {
     padding: 0.5vw 0vw;
+}
+
+@media (max-width: 1300px) {
+    .postCreator textarea {
+        height: 5vw;
+    }
+    .postCreator {
+        width: 85%
+    }
+}
+
+@media (max-width: 767px) {
+    .postCreator textarea {
+        height: 7.5vw;
+        width: 100%;
+    }
+    .postCreator {
+        width: 90%
+    }
+}
+
+@media (max-width: 500px) {
+    .postCreator textarea {
+        height: 12vw;
+        width: 100%;
+    }
+    .postCreator {
+        width: 100%
+    }
 }
