@@ -1,25 +1,25 @@
-import {AppStateType} from './redux-store'
+import { AppStateType } from './redux-store'
 
 export const getProfile = (state: AppStateType) => {
-    return state.profilePage.profile
+  return state.profilePage.profile
 }
 
 export const getUserStatus = (state: AppStateType) => {
-    return state.profilePage.status
+  return state.profilePage.status
 }
 
 export const getFollowed = (state: AppStateType) => {
-    return state.profilePage.followStatus
+  return state.profilePage.followStatus
 }
 
 export const getIsFollowingInProgress = (state: AppStateType) => {
-    return state.profilePage.isFollowingInProgress
+  return state.profilePage.isFollowingInProgress
 }
 
 export const getNewPostText = (state: AppStateType) => {
-    return state.profilePage.newPostText
+  return state.profilePage.newPostText
 }
 
 export const getFetched = (state: AppStateType) => {
-    return state.profilePage.fetched
+  return state.profilePage.fetched
 }

@@ -1,0 +1,35 @@
+.infoAbout {
+  padding: 0vw 1vw;
+  position: relative;
+  text-align: left;
+  top: -4vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*overflow:auto;*/
+}
+
+.settingsBtn {
+  margin-left: 10px;
+  color: #e89383;
+  cursor: pointer;
+  background-image: linear-gradient(#e89383, #e89383);
+  background-size: 0 1px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all 0.3s ease;
+}
+
+.settingsBtn:hover {
+  background-size: 100% 2px, auto;
+}
+
+.linkIcons {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .infoAbout {
+    font-size: 13px;
+  }
+}

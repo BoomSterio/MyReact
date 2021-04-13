@@ -1,0 +1,11 @@
+.chat {
+  padding: 1vw;
+  padding-bottom: 0;
+  min-height: 30vw;
+}
+
+.messages {
+  color: white;
+  height: 27.8vw;
+  overflow: auto;
+}

@@ -1,10 +1,20 @@
-.app-wrapper {
-    background-color: #314A61;
-}
-
 .app-wrapper-content {
-    color: white;
-    background-color: #314A61;
-    /*border-bottom: none;*/
+  background-color: #314a61;
+  /*border-bottom: none;*/
 }
 
+.ant-layout-sider {
+  background-color: transparent;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 0px rgba(34, 60, 80, 0.2);
+}
+
+.name {
+  color: #e89383;
+  font-size: 1.1em;
+  text-shadow: 1px 1px 2px lightgray;
+}

@@ -1,7 +1,5 @@
-import {instance} from './api'
+import { instance } from './api'
 
 //todo: implement dialogs API, BLL, UI
 
-export const dialogsAPI = {
-
-}
+export const dialogsAPI = {}

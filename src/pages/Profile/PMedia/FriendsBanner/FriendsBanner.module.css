@@ -1,0 +1,51 @@
+.icons {
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+.icons div {
+  text-align: center;
+}
+
+.icon {
+  text-align: center;
+}
+.icon img {
+  padding: 3px 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s;
+}
+.icon img:hover {
+  transform: scale(1.05);
+  filter: hue-rotate(-20deg) brightness(60%);
+}
+
+.friendsShortcut {
+  text-align: center;
+}
+.friendsShortcut a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
+}
+.friendsShortcut button {
+  border: none;
+}
+
+.friendsIcons {
+  text-align: center;
+  padding: 0 1.1vw;
+}
+
+@media (max-width: 1700px) {
+  .icon img {
+    padding: 3px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .icon img {
+    padding: 0;
+  }
+}

@@ -1,0 +1,42 @@
+.user {
+  background-color: white;
+  border: solid gray 1px;
+  margin: -1px 0.5vw;
+  padding: 0.5vw;
+  border-radius: 0.5vw;
+  height: 10em;
+}
+
+.avatar {
+  text-align: left;
+}
+.avatar img {
+  border-radius: 50%;
+}
+
+.info {
+  text-align: left;
+  padding-left: 0.5vw;
+}
+.info a {
+  text-decoration: none;
+}
+
+.fullName {
+  font-size: 1.3em;
+}
+
+.status {
+  font-size: 0.9em;
+  padding-top: 0.1em;
+}
+
+.location {
+  text-align: right;
+}
+
+@media (min-width: 1550px) {
+  .avatar img {
+    max-width: 80px;
+  }
+}

@@ -1,0 +1,41 @@
+.form {
+  width: 280px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+#email,
+#password,
+#captcha {
+  width: 12vw;
+}
+
+.formItem {
+  margin: 0.3vw 0;
+}
+
+.formItem label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.formItem img {
+  width: 100%;
+}
+
+.passIcon {
+  float: right;
+  left: -40px;
+  margin-top: 9px;
+  position: relative;
+  z-index: 1;
+}
+
+.error {
+  border: solid red 2px;
+  border-radius: 5px;
+  padding: 0.25em;
+  font-size: 0.8em;
+  width: 10vw;
+}

@@ -1,0 +1,19 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 4fr 10fr;
+  min-height: 60vh;
+}
+.dialogsItems {
+  height: 30vw;
+  overflow: auto;
+  padding: 10px;
+  margin-right: 5px;
+}
+.dialogsItems .active {
+  color: gold;
+}
+
+.messages {
+  position: relative;
+  border-left: double 5px lightgray;
+}

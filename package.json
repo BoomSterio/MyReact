@@ -24,6 +24,7 @@
     "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "craco-less": "^1.17.1",
+    "firebase-tools": "^9.3.0",
     "formik": "^2.2.6",
     "formik-antd": "^2.0.1",
     "formik-redux": "^2.0.0",
@@ -73,5 +74,13 @@
   "devDependencies": {
     "gh-pages": "^3.1.0",
     "react-test-renderer": "^17.0.1"
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "proseWrap": "never",
+    "printWidth": 150
   }
 }

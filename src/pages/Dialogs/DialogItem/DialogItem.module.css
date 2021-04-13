@@ -1,0 +1,33 @@
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.dialog {
+  display: flex;
+  background-color: white;
+  border: solid lightgray 2px;
+  border-left: none;
+  border-right: none;
+  padding: 4px 5px;
+  margin-bottom: -2px;
+}
+.dialog a {
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+}
+.dialog a.active {
+  color: gold;
+}
+.name {
+  margin-left: 10px;
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 20fr 100fr;
+}

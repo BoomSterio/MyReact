@@ -1,0 +1,101 @@
+.profileInfo {
+  min-height: 21vw;
+  max-height: 34vw;
+}
+
+.pfp {
+  position: relative;
+  align-content: center;
+  text-align: center;
+  top: -5.7vw;
+  transition: 0s;
+}
+
+.pfp img {
+  width: 7.5vw;
+  height: 7.5vw;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4vw;
+}
+
+Image img:hover {
+  transition: 0.3s all ease-in-out;
+  border-radius: 100px;
+}
+
+.myPfp {
+  position: relative;
+  align-content: center;
+  text-align: center;
+  top: -5.7vw;
+}
+
+.myPfp img {
+  width: 7.5vw;
+  height: 7.5vw;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4vw;
+
+  transition: all 0.3s ease;
+}
+
+.banner img {
+  height: 15vw;
+  width: 98%;
+  object-fit: cover;
+  border-radius: 1px 1px 12px 12px;
+  padding: 1%;
+  padding-top: 0;
+  filter: brightness(70%) contrast(85%);
+}
+
+.myInfo {
+  text-align: center;
+  position: relative;
+  top: -7.1vw;
+}
+
+.info {
+  text-align: center;
+  position: relative;
+  top: -6vw;
+}
+
+@media (max-width: 1300px) {
+  .profileInfo {
+    max-height: 46vw;
+  }
+  .myPfp img {
+    width: 9vw;
+    height: 9vw;
+    border-radius: 5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .myPfp img {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 5vw;
+  }
+}
+
+@media (max-width: 567px) {
+  .profileInfo {
+    max-height: 70vw;
+  }
+  .myPfp img {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 6vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .profileInfo {
+    min-height: 70vw;
+    max-height: 105vw;
+  }
+}

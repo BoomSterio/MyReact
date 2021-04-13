@@ -1,25 +1,24 @@
 .formControl {
-    width: 100%;
+  width: 100%;
 }
 .formControl input {
-    width: 100%;
+  width: 100%;
 }
 
 .formControl.error input,
 .formControl.error textarea {
-    width: 100%;
-    border: solid red 2px;
+  width: 100%;
+  border: solid red 2px;
 }
 
 .error span,
 .formSummaryError {
-    border: solid red 1px;
-    border-radius: 5px;
-    background-color: lightpink;
-    padding: 0.2em;
-    font-size: 0.7em;
-
+  border: solid red 1px;
+  border-radius: 5px;
+  background-color: lightpink;
+  padding: 0.2em;
+  font-size: 0.7em;
 }
 .formSummaryError {
-    width: 13.5%
+  width: 13.5%;
 }

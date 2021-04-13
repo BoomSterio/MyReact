@@ -1,0 +1,47 @@
+.aboutForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0vw 0.5vw;
+  position: relative;
+  text-align: left;
+  top: -4.5vw;
+}
+
+.aboutForm button {
+  color: black;
+}
+
+.aboutForm div {
+  font-size: 1em;
+  margin-top: 0.05vw;
+}
+
+.linkInput {
+  border-bottom: 1px solid burlywood;
+}
+
+.aboutForm TextArea {
+  height: 5vw;
+  width: 12vw;
+  resize: none;
+  color: black;
+}
+
+.aboutForm input {
+  color: black;
+}
+
+.col1 Input {
+  width: 10vw;
+}
+
+.col2 div {
+  display: inline-block;
+}
+
+.col3 div {
+  display: inline-block;
+}
+
+.formSummaryError {
+}

@@ -1,32 +1,50 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #151E27;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 img {
   max-width: 100%;
 }
 
-@media (max-width: 767px) {
-    .body {
-      font-size: 12px;
-    }
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
-::-webkit-scrollbar { width: 7px; height: 3px; border-radius: 3px;}
-::-webkit-scrollbar-button {  background-color: #314A61; border-radius: 3px;}
-::-webkit-scrollbar-track { }
-::-webkit-scrollbar-track-piece { background-color: #314A61; border-radius: 3px; border: 3px solid #314A61; }
-::-webkit-scrollbar-thumb { height: 50px; background-color: #151E27; border-radius: 3px; }
-::-webkit-scrollbar-corner { background-color: #314A61;}
-::-webkit-resizer { background-color: #314A61;}
+@media (max-width: 767px) {
+  .body {
+    font-size: 12px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+::-webkit-scrollbar-button {
+  background-color: darkgrey;
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-track-piece {
+  background-color: lightgray;
+  border: 3px solid lightgray;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: gray;
+}
+::-webkit-scrollbar-corner {
+  background-color: #314a61;
+}
+::-webkit-resizer {
+  background-color: #314a61;
+}

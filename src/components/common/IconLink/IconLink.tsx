@@ -8,41 +8,45 @@ import instagram from '../../../assets/images/instagram.png'
 import website from '../../../assets/images/website.png'
 import mainLink from '../../../assets/images/mainLink2.png'
 import React from 'react'
-import {ContactsType} from '../../../types/types'
+import { ContactsType } from '../../../types/types'
 
 const Websites = {
-    github: github,
-    vk: vk,
-    youtube: youtube,
-    twitter: twitter,
-    facebook: facebook,
-    instagram: instagram,
-    website: website,
-    mainLink: mainLink
+  github: github,
+  vk: vk,
+  youtube: youtube,
+  twitter: twitter,
+  facebook: facebook,
+  instagram: instagram,
+  website: website,
+  mainLink: mainLink,
 }
 
 type Props = {
-    type: string
-    link: string | keyof ContactsType
+  type: string
+  link: string | keyof ContactsType
 }
 //todo: use websites object keys instead of switch-case (COMPLETED)
-const IconLink: React.FC<Props> = ({link, type}) => {
-    if (link === null || link === '') {
-        return null
-    }
+const IconLink: React.FC<Props> = ({ link, type }) => {
+  if (link === null || link === '') {
+    return null
+  }
 
-    if (!link.startsWith('https://') && !link.startsWith('www')) {
-        link = 'https://' + link
-    }
+  if (!link.startsWith('https://') && !link.startsWith('www')) {
+    link = 'https://' + link
+  }
 
-    const icon = Websites[type as keyof ContactsType]
+  const icon = Websites[type as keyof ContactsType]
 
-    function onLinkClick() {
-        // @ts-ignore
-        window.location = link as Location
-    }
+  function onLinkClick() {
+    // @ts-ignore
+    window.location = link as Location
+  }
 
-    return <span onClick={onLinkClick} title={link} className={st.linkBtn}><img src={icon} alt={'iconLink'}/></span>
+  return (
+    <span onClick={onLinkClick} title={link} className={st.linkBtn}>
+      <img src={icon} alt={'iconLink'} />
+    </span>
+  )
 }
 
 export default IconLink
